@@ -1,4 +1,4 @@
-##剖析ReentrantLock非公平锁和公平锁的源码##
+## 剖析ReentrantLock非公平锁和公平锁的源码 ##
 ReentrantLock和synchronized一样是可重入锁。
 >可重入锁，也叫做递归锁。指的是同一线程外层函数获得锁之后 ，内层递归函数仍然有获取该锁的代码，但不受影响。其最大作用是不会产生死锁。
 
@@ -10,7 +10,7 @@ ReentrantLock与synchronized的区别
  4. ReentrantLock支持更加灵活的同步代码块，但是使用synchronized时，只能在同一个synchronized块结构中获取和释放。注：ReentrantLock的锁释放一定要在finally中处理，否则可能会产生严重的后果。
  5. ReentrantLock支持中断处理，且性能较synchronized会好些。
 
-###ReentrantLock类继承关系图###
+### ReentrantLock类继承关系图 ###
 
 ![](https://raw.githubusercontent.com/MuggleLee/PicGo/master/ReentranrLock-Relationship.png)
 
