@@ -58,63 +58,71 @@ public class CountDownLatchDemo implements Runnable {
 ```
 好了，知道大概怎么使用这个并发类，接下来开始撸源码！
 ```java
-public class CountDownLatch {  
-	//内部使用Sync继承AQS
-    private static final class Sync extends AbstractQueuedSynchronizer {  
-        private static final long serialVersionUID = 4982264981922014374L;  
- 
-		Sync(int count) {  
-			//设置计算值
-		    setState(count);  
-		}  
-	    //获取计算值
-        int getCount() {  
-            return getState();  
-		}  
-		//尝试获取共享锁
-        protected int tryAcquireShared(int acquires) {  
-            return (getState() == 0) ? 1 : -1;  
-	    }  
-	    //尝试释放锁
-        protected boolean tryReleaseShared(int releases) {  
-            for (; ; ) {  
-                int c = getState();  
-				if (c == 0)  
-                    return false;  
-				int nextc = c - 1;  
-				if (compareAndSetState(c, nextc))  
-				    return nextc == 0;  
-				}  
-	        }  
-	    }  
-  
-	    private final Sync sync;  
-		//CountDownLatch唯一的构造器，参数count值为阻塞线程数
-		public CountDownLatch(int count) {  
-		    if (count < 0) throw new IllegalArgumentException("count < 0");  
-			this.sync = new Sync(count);  
-		}  
-	    //阻塞线程，直到count值为0
-	    public void await() throws InterruptedException {  
-	        sync.acquireSharedInterruptibly(1);  
-		}  
-	    //限定阻塞时间，超出限定时间后，count值还没为0都会执行之后的线程
-	    public boolean await(long timeout, TimeUnit unit)  
-	            throws InterruptedException {  
-	        return sync.tryAcquireSharedNanos(1, unit.toNanos(timeout));  
-	    }  
-	    //释放锁操作，每调用一次，count值减一
-	    public void countDown() {  
-	        sync.releaseShared(1);  
-	    }  
-		//获取count值
-	    public long getCount() {  
-	        return sync.getCount();  
-	    }  
-	    
-	    public String toString() {  
-	        return super.toString() + "[Count = " + sync.getCount() + "]";  
-	    }  
+public class CountDownLatch {
+    //内部使用Sync继承AQS
+    private static final class Sync extends AbstractQueuedSynchronizer {
+        private static final long serialVersionUID = 4982264981922014374L;
+
+        Sync(int count) {
+            //设置计算值
+            setState(count);
+        }
+
+        //获取计算值
+        int getCount() {
+            return getState();
+        }
+
+        //尝试获取共享锁
+        protected int tryAcquireShared(int acquires) {
+            return (getState() == 0) ? 1 : -1;
+        }
+
+        //尝试释放锁
+        protected boolean tryReleaseShared(int releases) {
+            for (; ; ) {
+                int c = getState();
+                if (c == 0)
+                    return false;
+                int nextc = c - 1;
+                if (compareAndSetState(c, nextc))
+                    return nextc == 0;
+            }
+        }
+    }
+
+    private final Sync sync;
+
+    //CountDownLatch唯一的构造器，参数count值为阻塞线程数
+    public CountDownLatch(int count) {
+        if (count < 0) throw new IllegalArgumentException("count < 0");
+        this.sync = new Sync(count);
+    }
+
+    //阻塞线程，直到count值为0
+    public void await() throws InterruptedException {
+        sync.acquireSharedInterruptibly(1);
+    }
+
+    //限定阻塞时间，超出限定时间后，count值还没为0都会执行之后的线程
+    public boolean await(long timeout, TimeUnit unit)
+            throws InterruptedException {
+        return sync.tryAcquireSharedNanos(1, unit.toNanos(timeout));
+    }
+
+    //释放锁操作，每调用一次，count值减一
+    public void countDown() {
+        sync.releaseShared(1);
+    }
+
+    //获取count值
+    public long getCount() {
+        return sync.getCount();
+    }
+
+    public String toString() {
+        return super.toString() + "[Count = " + sync.getCount() + "]";
+    }
 }
 ```
 大概流程就是，先调用CountDownLatch构造器设置计算值(count)，当主线程(main方法)执行到await()方法的时候就会阻塞主线程，然后执行线程池内的任务，通过执行countDown()方法，将count值不断的减1，直到count值为0的时候就会释放锁，继续执行主线程。
@@ -214,170 +222,173 @@ public class CyclicBarrierDemo implements Runnable {
 
 接下来，膜拜Doug Lea写的源码
 ```java
-public class CyclicBarrier {  
-	//Generation是CyclicBarrier的一个私有内部类，只有一个成员变量broken来标识当前的barrier是否已“损坏”：
-    private static class Generation {  
-        boolean broken = false;  
-  }  
-  
-    private final ReentrantLock lock = new ReentrantLock();  
-	private final Condition trip = lock.newCondition(); //通过lock得到的一个状态变量
-    private final int parties;  //表示总的等待线程的数量。
-	private final Runnable barrierCommand;  //当屏障(barrier)撤销时，需要执行的操作
-	private Generation generation = new Generation();  //当前的Generation。每当屏障失效或者开闸之后都会自动替换掉。从而实现重置的功能。
-	
-	private int count;//实际中仍在等待的线程数，每当有一个线程到达屏障点，count值就会减一；当一次新的运算开始后，count的值被重置为parties。
-	//唤醒等待线程，设置下一个Generation
-	private void nextGeneration() {  
-        // 唤醒所有等待线程
-		trip.signalAll();  
-	    // 重置进入屏障的线程数量
-	    count = parties;  
-	    // 新生一代
-	    generation = new Generation();  
-    }  
-    //将当前屏障置为破坏状态、重置count、并唤醒所有被阻塞的线程。
-    private void breakBarrier() {  
-        generation.broken = true;  
-	    count = parties;  
-	    trip.signalAll();  
-    }  
-  
-    private int dowait(boolean timed, long nanos)  
-            throws InterruptedException, BrokenBarrierException,  
-				   TimeoutException {  
-        final ReentrantLock lock = this.lock;  
-	    lock.lock();   //获取锁
-		try {  
-			//保存此时的generation
-		    final Generation g = generation;  
-		    //判断屏障是否被破坏
-			if (g.broken)  
-                throw new BrokenBarrierException();  
-            //判断线程是否被中断
-			if (Thread.interrupted()) {  
-			    breakBarrier();  
-				throw new InterruptedException();  
-			}   
-			//正在等待进入屏障的线程数量减一
-	        int index = --count;  
-	        //判断等待进入屏障的线程数量是否为0
-			if (index == 0) { 
-				// 运行的动作标识
-				boolean ranAction = false;  
-				try {  
-					// 保存运行动作	
-				    final Runnable command = barrierCommand;  
-				    // 如果动作不为空则运行
-					if (command != null)  
-				        command.run();  
-				    // 设置运行的动作状态
-					ranAction = true;  
-					// 进入下一代，唤醒所有线程;重置count和generation值.
-					nextGeneration();  
-					return 0;  
-				 } finally {  
-			        if (!ranAction)  
-			            breakBarrier();  
-				 }  
-           }  
-           // index不为0，无限循环
-		   for (; ; ) {  
-		       try {  
-			       // 如果没有设置定时就一直等待
-		           if (!timed)  
-		               trip.await();  
-				   else if (nanos > 0L)  // 如果设置了定时
-		               nanos = trip.awaitNanos(nanos);  // 等待定时的时间后，重新唤醒
-			   } catch (InterruptedException ie) {  
-		           if (g == generation && !g.broken) {  
-		               breakBarrier();  
-					   throw ie;  
-				   } else {  
-					   Thread.currentThread().interrupt();  
-				   }  
-			   }  
-			   // 取消阻塞后，重新判断状态
-		       if (g.broken)  
-		           throw new BrokenBarrierException();  
-			   if (g != generation)  
-		           return index;  
-			   if (timed && nanos <= 0L) {  
-		           breakBarrier();  
-				   throw new TimeoutException();  
-				}  
-	       }  
-	   } finally {  
-	       lock.unlock();  
-	   }  
-}  
-  
-    public CyclicBarrier(int parties, Runnable barrierAction) {  
-        if (parties <= 0) throw new IllegalArgumentException();  
-        //表示必须同时到达屏障(barrier)的线程个数
-		this.parties = parties;  
-		//表示处于等待状态的线程个数
-		this.count = parties;  
-		//表示当等待线程数为0时，会执行的动作
-		this.barrierCommand = barrierAction;  
-    }  
-  
-    public CyclicBarrier(int parties) {  
-        this(parties, null);  
-    }  
-
-	//返回参与相互等待的线程数
-    public int getParties() {  
-        return parties;  
-    }  
-    public int await() throws InterruptedException, BrokenBarrierException {  
-        try {  
-            return dowait(false, 0L);  
-		} catch (TimeoutException toe) {  
-		    throw new Error(toe);
-		}  
+public class CyclicBarrier {
+    //Generation是CyclicBarrier的一个私有内部类，只有一个成员变量broken来标识当前的barrier是否已“损坏”：
+    private static class Generation {
+        boolean broken = false;
     }
-    
-    public int await(long timeout, TimeUnit unit)  
-        throws InterruptedException,  
-			   BrokenBarrierException,  
-			   TimeoutException {  
-        return dowait(true, unit.toNanos(timeout));  
-    }  
-    
-	// 判断此屏障是否处于中断状态。
-    public boolean isBroken() {  
-        final ReentrantLock lock = this.lock;  
-		lock.lock();  
-	    try {  
-		     return generation.broken;  
-		} finally {  
-		     lock.unlock();  
-		}  
-    }  
-    
-	//将屏障重置为其初始状态。
-    public void reset() {  
-        final ReentrantLock lock = this.lock;  
-	    lock.lock();  
-		try {  
-		    breakBarrier(); 
-		    nextGeneration();
-		} finally {  
-		    lock.unlock();  
-		}  
-    }  
-    
-	//返回当前在屏障处等待的参与者数目，此方法主要用于调试和断言。
-    public int getNumberWaiting() {  
-        final ReentrantLock lock = this.lock;  
-		lock.lock();  
-	    try {  
-		    return parties - count;  
-		} finally {  
-		    lock.unlock();  
-		}  
-    }  
+
+    private final ReentrantLock lock = new ReentrantLock();
+    private final Condition trip = lock.newCondition(); //通过lock得到的一个状态变量
+    private final int parties;  //表示总的等待线程的数量。
+    private final Runnable barrierCommand;  //当屏障(barrier)撤销时，需要执行的操作
+    private Generation generation = new Generation();  //当前的Generation。每当屏障失效或者开闸之后都会自动替换掉。从而实现重置的功能。
+
+    private int count;//实际中仍在等待的线程数，每当有一个线程到达屏障点，count值就会减一；当一次新的运算开始后，count的值被重置为parties。
+
+    //唤醒等待线程，设置下一个Generation
+    private void nextGeneration() {
+        // 唤醒所有等待线程
+        trip.signalAll();
+        // 重置进入屏障的线程数量
+        count = parties;
+        // 新生一代
+        generation = new Generation();
+    }
+
+    //将当前屏障置为破坏状态、重置count、并唤醒所有被阻塞的线程。
+    private void breakBarrier() {
+        generation.broken = true;
+        count = parties;
+        trip.signalAll();
+    }
+
+    private int dowait(boolean timed, long nanos)
+            throws InterruptedException, BrokenBarrierException,
+            TimeoutException {
+        final ReentrantLock lock = this.lock;
+        lock.lock();   //获取锁
+        try {
+            //保存此时的generation
+            final Generation g = generation;
+            //判断屏障是否被破坏
+            if (g.broken)
+                throw new BrokenBarrierException();
+            //判断线程是否被中断
+            if (Thread.interrupted()) {
+                breakBarrier();
+                throw new InterruptedException();
+            }
+            //正在等待进入屏障的线程数量减一
+            int index = --count;
+            //判断等待进入屏障的线程数量是否为0
+            if (index == 0) {
+                // 运行的动作标识
+                boolean ranAction = false;
+                try {
+                    // 保存运行动作	
+                    final Runnable command = barrierCommand;
+                    // 如果动作不为空则运行
+                    if (command != null)
+                        command.run();
+                    // 设置运行的动作状态
+                    ranAction = true;
+                    // 进入下一代，唤醒所有线程;重置count和generation值.
+                    nextGeneration();
+                    return 0;
+                } finally {
+                    if (!ranAction)
+                        breakBarrier();
+                }
+            }
+            // index不为0，无限循环
+            for (; ; ) {
+                try {
+                    // 如果没有设置定时就一直等待
+                    if (!timed)
+                        trip.await();
+                    else if (nanos > 0L)  // 如果设置了定时
+                        nanos = trip.awaitNanos(nanos);  // 等待定时的时间后，重新唤醒
+                } catch (InterruptedException ie) {
+                    if (g == generation && !g.broken) {
+                        breakBarrier();
+                        throw ie;
+                    } else {
+                        Thread.currentThread().interrupt();
+                    }
+                }
+                // 取消阻塞后，重新判断状态
+                if (g.broken)
+                    throw new BrokenBarrierException();
+                if (g != generation)
+                    return index;
+                if (timed && nanos <= 0L) {
+                    breakBarrier();
+                    throw new TimeoutException();
+                }
+            }
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public CyclicBarrier(int parties, Runnable barrierAction) {
+        if (parties <= 0) throw new IllegalArgumentException();
+        //表示必须同时到达屏障(barrier)的线程个数
+        this.parties = parties;
+        //表示处于等待状态的线程个数
+        this.count = parties;
+        //表示当等待线程数为0时，会执行的动作
+        this.barrierCommand = barrierAction;
+    }
+
+    public CyclicBarrier(int parties) {
+        this(parties, null);
+    }
+
+    //返回参与相互等待的线程数
+    public int getParties() {
+        return parties;
+    }
+
+    public int await() throws InterruptedException, BrokenBarrierException {
+        try {
+            return dowait(false, 0L);
+        } catch (TimeoutException toe) {
+            throw new Error(toe);
+        }
+    }
+
+    public int await(long timeout, TimeUnit unit)
+            throws InterruptedException,
+            BrokenBarrierException,
+            TimeoutException {
+        return dowait(true, unit.toNanos(timeout));
+    }
+
+    // 判断此屏障是否处于中断状态。
+    public boolean isBroken() {
+        final ReentrantLock lock = this.lock;
+        lock.lock();
+        try {
+            return generation.broken;
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    //将屏障重置为其初始状态。
+    public void reset() {
+        final ReentrantLock lock = this.lock;
+        lock.lock();
+        try {
+            breakBarrier();
+            nextGeneration();
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    //返回当前在屏障处等待的参与者数目，此方法主要用于调试和断言。
+    public int getNumberWaiting() {
+        final ReentrantLock lock = this.lock;
+        lock.lock();
+        try {
+            return parties - count;
+        } finally {
+            lock.unlock();
+        }
+    }
 }
 ```
 
