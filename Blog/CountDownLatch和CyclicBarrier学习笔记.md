@@ -385,7 +385,5 @@ public class CyclicBarrier {
 
 ![enter image description here](https://raw.githubusercontent.com/MuggleLee/PicGo/master/CyclicBarrier-dowait-flow.png)
 
-![](https://raw.githubusercontent.com/MuggleLee/PicGo/master/CyclicBarrier-dowait-flow.png)
-
 
 参考资料：https://blog.csdn.net/caoxiaohong1005/article/details/80000062
