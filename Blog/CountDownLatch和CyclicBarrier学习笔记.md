@@ -191,17 +191,17 @@ public class CyclicBarrierDemo implements Runnable {
 	public void run() {  
         try {  
             if("小C".equals(name)){  
-                System.out.println(name + "路上塞车");  
-			    Thread.sleep(1000);  
-			}  
-	        System.out.println(this.name + "到达广州塔... ");  
-		    cyclicBarrier.await();  
-		    System.out.println(this.name + "到达茶楼 ");  
-	    } catch (InterruptedException e) {  
-	        e.printStackTrace();  
-	    } catch (BrokenBarrierException e) {  
-	        e.printStackTrace();  
+               System.out.println(name + "路上塞车");  
+	       Thread.sleep(1000);  
 	    }  
+	    System.out.println(this.name + "到达广州塔... ");  
+	    cyclicBarrier.await();  
+	    System.out.println(this.name + "到达茶楼 ");  
+	} catch (InterruptedException e) {  
+	    e.printStackTrace();  
+	} catch (BrokenBarrierException e) {  
+	    e.printStackTrace();  
+	}  
     }  
 }
 ```
