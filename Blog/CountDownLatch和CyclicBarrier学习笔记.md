@@ -5,47 +5,45 @@ CountDownLatch：一个或多个线程等待其他线程完成操作。
   
 
 使用该并发类并不难，熟悉几个主要方法就可以。
-```
-    public CountDownLatch(int count) { } ： //参数count为计数值
-    await()： 调用await()方法的线程会被挂起，它会等待直到count值为0才继续执行
-    await(long timeout,TimeUnit unit)： //和await()类似，只不过等待一定的时间后count值还没变为0的话就会继续执行
-    countDown()： //将count值减1
-    getCount()：//获取count值
-```
+ - public CountDownLatch(int count)： //参数count为计数值
+ - await()： 调用await()方法的线程会被挂起，它会等待直到count值为0才继续执行
+ - await(long timeout,TimeUnit unit)： //和await()类似，只不过等待一定的时间后count值还没变为0的话就会继续执行
+ - countDown()： //将count值减1
+ - getCount()：//获取count值
 先写个简单的Demo：
 ```java
 public class CountDownLatchDemo implements Runnable {  
   
     private static final int threadCount = 3;  
   
-	private static CountDownLatch countDownLatch = new CountDownLatch(threadCount);  
+    private static CountDownLatch countDownLatch = new CountDownLatch(threadCount);  
   
-	private static double sum = 0D;  
+    private static double sum = 0D;  
   
-	public String name;  
+    public String name;  
 	  
-	public CountDownLatchDemo() {  
-	}  
+    public CountDownLatchDemo() {  
+    }  
 	  
-	public CountDownLatchDemo(String name) {  
-	    this.name = name;  
-	}  
+    public CountDownLatchDemo(String name) {  
+	this.name = name;  
+    }  
   
     public static void main(String[] args) throws InterruptedException {  
         ExecutorService executorService = Executors.newFixedThreadPool(threadCount);  
-	    executorService.execute(new CountDownLatchDemo("A同学"));  
-	    executorService.execute(new CountDownLatchDemo("B同学"));  
-	    executorService.execute(new CountDownLatchDemo("C同学"));  
-	    countDownLatch.await();  
-	    System.out.println("所有人的总成绩 " + sum);  
-	}  
+	executorService.execute(new CountDownLatchDemo("A同学"));  
+        executorService.execute(new CountDownLatchDemo("B同学"));  
+	executorService.execute(new CountDownLatchDemo("C同学"));  
+	countDownLatch.await();  
+	System.out.println("所有人的总成绩 " + sum);  
+    }  
   
     @Override  
     public void run() {  
         double grade = Math.round(Math.random() * 100);  
-	    System.out.println("计算 " + name + " 成绩，成绩是" + grade);  
-	    sum += grade;  
-	    countDownLatch.countDown();  
+	System.out.println("计算 " + name + " 成绩，成绩是" + grade);  
+	sum += grade;  
+	countDownLatch.countDown();  
     }  
 }
 ```
@@ -392,7 +390,7 @@ public class CyclicBarrier {
 }
 ```
 
-其中，使用CyclicBarrier并发类的核心就是await方法，结合源码分析，得出以下的流程图：
+其中，使用CyclicBarrier并发类的核心就是dowait方法，结合源码分析，得出以下的流程图：
 
 ![enter image description here](https://raw.githubusercontent.com/MuggleLee/PicGo/master/CyclicBarrier-dowait-flow.png)
 
