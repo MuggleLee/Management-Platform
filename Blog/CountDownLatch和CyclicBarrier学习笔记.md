@@ -398,7 +398,7 @@ public class CyclicBarrier {
 什么是Semaphor？
 >Semaphore（信号量）是用来控制同时访问特定资源的线程数量，它通过协调各个线程，以保证合理的使用公共资源。
 什么情况下使用Semaphor？
->
+>用于限制获取某种资源的线程数量。
 
 
 参考资料：https://blog.csdn.net/caoxiaohong1005/article/details/80000062
