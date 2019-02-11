@@ -395,8 +395,9 @@ public class CyclicBarrier {
 ![enter image description here](https://raw.githubusercontent.com/MuggleLee/PicGo/master/CyclicBarrier-dowait-flow.png)
 
 # Semaphor
+什么是Sema
 Semaphore（信号量）是用来控制同时访问特定资源的线程数量，它通过协调各个线程，以
-保证合理的使用公共资源
+保证合理的使用公共资源。
 
 
 参考资料：https://blog.csdn.net/caoxiaohong1005/article/details/80000062
