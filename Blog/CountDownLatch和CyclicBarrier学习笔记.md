@@ -156,9 +156,9 @@ public class CyclicBarrierDemo implements Runnable {
   
     public static int count = 3;  
   
-	public String name;  
+    public String name;  
   
-	public CyclicBarrierDemo(String name) {  
+    public CyclicBarrierDemo(String name) {  
         this.name = name;  
     }  
   
@@ -166,26 +166,26 @@ public class CyclicBarrierDemo implements Runnable {
     }  
   
     public static CyclicBarrier cyclicBarrier = new CyclicBarrier(count, new Runnable() {  
-	    @Override  
-		public void run() {  
-	        System.out.println("大家启程去茶楼，喝茶去噜...");  
-		}  
+        @Override  
+	public void run() {  
+	    System.out.println("大家启程去茶楼，喝茶去噜...");  
+	}  
     });  
   
- public static void main(String[] args) {  
-      //创建线程池  
-	  ExecutorService executor = Executors.newFixedThreadPool(count);  
-	  try {  
-          //执行线程  
-		  executor.execute(new CyclicBarrierDemo("小A"));  
-		  executor.execute(new CyclicBarrierDemo("小B"));  
-		  executor.execute(new CyclicBarrierDemo("小C"));  
-		  } catch (Exception e) {  
-		      e.printStackTrace();  
-		  } finally {  
-		      executor.shutdown();  
-		  }  
-     }  
+    public static void main(String[] args) {  
+        //创建线程池  
+        ExecutorService executor = Executors.newFixedThreadPool(count);  
+	try {  
+            //执行线程  
+	    executor.execute(new CyclicBarrierDemo("小A"));  
+	    executor.execute(new CyclicBarrierDemo("小B"));  
+	    executor.execute(new CyclicBarrierDemo("小C"));  
+        } catch (Exception e) {  
+	    e.printStackTrace();  
+	} finally {  
+            executor.shutdown();  
+	}  
+    }  
   
     @Override  
 	public void run() {  
