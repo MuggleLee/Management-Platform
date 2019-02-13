@@ -456,8 +456,8 @@ Tue Feb 12 10:56:32 CST 2019 --- pool-1-thread-11
 - acquire()：从信号量获取一个许可，在获取到一个许可前一直将线程阻塞，或者线程被中断。
 - acquire(int n)：从信号量获取给定数目的许可，在提供这些许可前一直将线程阻塞，或者线程已被中断。
 - release()：释放一个许可，将其返回给信号量。
-- release(int n)：
-- availablePermits()：
+- release(int n)：释放给定数目的许可，将其返回到信号量。
+- availablePermits()：返回此信号量中当前可用的许可数。
 
 
 
