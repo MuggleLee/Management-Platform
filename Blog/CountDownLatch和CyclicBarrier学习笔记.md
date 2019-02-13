@@ -460,7 +460,10 @@ Tue Feb 12 10:56:32 CST 2019 --- pool-1-thread-11
 - availablePermits()：返回此信号量中当前可用的许可数。
 
 
+接下来，开始撸源码！
+```java
 
+```
 
 
 
