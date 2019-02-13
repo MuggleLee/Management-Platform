@@ -451,11 +451,11 @@ Tue Feb 12 10:56:32 CST 2019 --- pool-1-thread-11
 由运行结果可以看出，每隔一秒就有4个线程执行，可以说明，使用Semaphor并发类限制了并发线程数量。
 
 使用并发类Semaphor十分简单，只需要掌握几个常用的方法。
-Semaphore(int permits)：创建具有给定的许可数和使用默认非公平策略的Semaphore。
-Semaphore(int permits,boolean fair)：创建具有给定的许可数和根据fair判断使用非公平或公平策略的Semaphor
-acquire()：
-acquire(int n)
-release()
+- Semaphore(int permits)：创建具有给定的许可数和使用默认非公平策略的Semaphore。
+- Semaphore(int permits,boolean fair)：创建具有给定的许可数和根据fair判断使用非公平或公平策略的Semaphor
+- acquire()：
+- acquire(int n)
+- release()
 release(int n)
 availablePermits()
 
