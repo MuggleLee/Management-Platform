@@ -454,17 +454,17 @@ Tue Feb 12 10:56:32 CST 2019 --- pool-1-thread-11
 - Semaphore(int permits)：创建具有给定的许可数和使用默认非公平策略的Semaphore。
 - Semaphore(int permits,boolean fair)：创建具有给定的许可数和根据fair判断使用非公平或公平策略的Semaphor
 - acquire()：
-- acquire(int n)
-- release()
-release(int n)
-availablePermits()
+- acquire(int n)：
+- release()：
+- release(int n)：
+- availablePermits()：
 
 
 
 
 
 
-参考资料：https://blog.csdn.net/caoxiaohong1005/article/details/80000062
+参考资料：https://blog.csdn.net/caoxiaohong1005/article/details/80000062<>
 参考书籍：《Java并发编程的艺术》
 
 
