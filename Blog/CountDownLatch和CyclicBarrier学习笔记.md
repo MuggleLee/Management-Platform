@@ -401,6 +401,72 @@ public class CyclicBarrier {
 什么情况下使用Semaphor？
 >用于限制获取某种资源的线程数量。
 
+怎样使用Semaphor？
+```java
+public class SemaphoreDemo {
+
+    private static final int permits = 4;
+
+    private static Semaphore semaphore = new Semaphore(permits);
+
+    public static void main(String[] args) {
+        ExecutorService executor = Executors.newCachedThreadPool();
+        for (int i = 0; i < 12; i++) {
+            final int index = i;
+            executor.execute(() -> {
+                try {
+                    semaphore.acquire();
+                    show(index);
+                    semaphore.release();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
+        }
+    }
+
+    public static void show(int index) throws InterruptedException {
+        Thread.sleep(1000);
+        System.out.println(new Date().toString() + " --- " + Thread.currentThread().getName());
+    }
+}
+```
+
+运行结果：
+```
+Tue Feb 12 10:56:30 CST 2019 --- pool-1-thread-1
+Tue Feb 12 10:56:30 CST 2019 --- pool-1-thread-2
+Tue Feb 12 10:56:30 CST 2019 --- pool-1-thread-6
+Tue Feb 12 10:56:30 CST 2019 --- pool-1-thread-5
+Tue Feb 12 10:56:31 CST 2019 --- pool-1-thread-7
+Tue Feb 12 10:56:31 CST 2019 --- pool-1-thread-4
+Tue Feb 12 10:56:31 CST 2019 --- pool-1-thread-8
+Tue Feb 12 10:56:31 CST 2019 --- pool-1-thread-3
+Tue Feb 12 10:56:32 CST 2019 --- pool-1-thread-9
+Tue Feb 12 10:56:32 CST 2019 --- pool-1-thread-12
+Tue Feb 12 10:56:32 CST 2019 --- pool-1-thread-10
+Tue Feb 12 10:56:32 CST 2019 --- pool-1-thread-11
+```
+
+由运行结果可以看出，每隔一秒就有4个线程执行，可以说明，使用Semaphor并发类限制了并发线程数量。
+
+使用并发类Semaphor十分简单，只需要掌握几个常用的方法。
+Semaphore(int permits)：创建具有给定的许可数和使用默认非公平策略的Semaphore。
+Semaphore(int permits,boolean fair)：创建具有给定的许可数和根据fair判断使用非公平或公平策略的Semaphor
+acquire()：
+acquire(int n)
+release()
+release(int n)
+availablePermits()
+
+
+
+
+
 
 参考资料：https://blog.csdn.net/caoxiaohong1005/article/details/80000062
 参考书籍：《Java并发编程的艺术》
+
+
+
+
