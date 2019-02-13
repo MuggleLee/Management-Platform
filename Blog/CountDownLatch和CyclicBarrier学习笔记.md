@@ -453,7 +453,7 @@ Tue Feb 12 10:56:32 CST 2019 --- pool-1-thread-11
 使用并发类Semaphor十分简单，只需要掌握几个常用的方法。
 - Semaphore(int permits)：创建具有给定的许可数和使用默认非公平策略的Semaphore。
 - Semaphore(int permits,boolean fair)：创建具有给定的许可数和根据fair判断使用非公平或公平策略的Semaphor
-- acquire()：
+- acquire()：从信号量获取一个许可，在提供一个许可前一直将线程阻塞，否则线程被中断。
 - acquire(int n)：
 - release()：
 - release(int n)：
