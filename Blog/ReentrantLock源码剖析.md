@@ -17,7 +17,7 @@ ReentrantLock与synchronized的区别
 ReentrantLock有公平锁和非公平锁两种实现方式，默认使用非公平锁。因为可能存在某些线程阻塞时间长而导致整体执行效率低，所以使用非公平锁比使用公平锁的效率要高。
 
 >  非公平锁和公平锁的区别：<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;非公平锁直接执行compareAndSetState()方法，尝试将state修改为1，这是明显就是抢先获取锁的过程。(插队行为)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;非公平锁直接执行compareAndSetState()方法，尝试将state修改为1，这明显就是抢先获取锁的过程。(插队行为)<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;公平锁在执行compareAndSetState()方法之前，会先执行hasQueuedPredecessors()判断等待队列是否为空。如果为空则占有锁，否则会加入等待线程队列，依次获取锁。(文明排队)
   
     public ReentrantLock() {
