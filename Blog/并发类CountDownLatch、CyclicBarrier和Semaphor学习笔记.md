@@ -6,8 +6,11 @@
 >某一个动作需要等待其它线程完成后才会触发。
 举个栗子，一个班上50个人，考完试之后需要计算全班同学的总成绩，这种情况使用CountDownLatch并发类就最合适了，每一个人的成绩等于一个线程，需要等待50个线程执行完之后才能执行最后一个动作（计算总成绩）。
 
+
+**如何使用并发类CountDownLatch？**
+
 使用该并发类并不难，熟悉几个主要方法就可以。
-<font color=>
+<font color=Tomato>
  - **CountDownLatch(int count)： //参数count为计数值**
  - **await()： 调用await()方法的线程会被挂起，它会等待直到count值为0才继续执行**
  - **await(long timeout,TimeUnit unit)： //和await()类似，只不过等待一定的时间后count值还没变为0的话就会继续执行**
@@ -15,8 +18,7 @@
  - **getCount()：//获取count值**
 </font>
 
-**如何使用并发类CountDownLatch？**
-
+**代码示例：**
 ```java
 public class CountDownLatchDemo implements Runnable {  
   
