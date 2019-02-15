@@ -137,7 +137,7 @@ CountDownLatch基于AQS实现的；设置了等待线程数后无法重置；
 CyclicBarrier基于Condition和ReentrantLock锁实现；设置等待线程数后可以调用reset()重置；
 
 **概念上区别：**
-CountDownLatch：一个或多个线程等待其他线程执行完成后再执行。**<font color=yello>（关键词：“其他线程执行完成后”）</font>**
+CountDownLatch：一个或多个线程等待其他线程执行完成后再执行。**<font color=Teal>（关键词：“其他线程执行完成后”）</font>**
 
 例子：线程S需要等待线程A、B、C都执行完成后才会执行。</br>
 ![enter image description here](https://raw.githubusercontent.com/MuggleLee/PicGo/master/CountDownLatch--Example.png)
