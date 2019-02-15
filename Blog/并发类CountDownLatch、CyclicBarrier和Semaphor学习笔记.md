@@ -453,8 +453,7 @@ Tue Feb 12 10:56:32 CST 2019 --- pool-1-thread-11
 使用并发类Semaphor十分简单，只需要掌握几个常用的方法。</br>
 Semaphore(int permits)：创建给定的许可数和使用默认非公平策略。</br>
 Semaphore(int permits,boolean fair)：创建给定的许可数和根据fair判断使用非公平或公平策略。</br>
-**Semaphor构造器流程图**</br>
-![Semaphor构造器流程图](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_Constructor_flow.png)</br>
+
 **acquire方法流程图**</br>
 acquire()：从信号量获取一个许可，在获取到一个许可前一直将线程阻塞，或者线程被中断。</br>
 acquire(int n)：从信号量获取给定数目的许可，在提供这些许可前一直将线程阻塞，或者线程已被中断。</br>
@@ -482,6 +481,8 @@ availablePermits()：返回此信号量中当前可用的许可数。</br>
         sync = fair ? new Semaphore.FairSync(permits) : new Semaphore.NonfairSync(permits);
     }
 ```
+**Semaphor构造器流程图**</br>
+![Semaphor构造器流程图](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_Constructor_flow.png)</br>
 创建Semaphor对象的时候可以选择使用公平模式或者非公平模式。
 
 接下来，开始撸源码！
