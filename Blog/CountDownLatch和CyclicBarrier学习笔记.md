@@ -670,6 +670,8 @@ public class Semaphore implements java.io.Serializable {
 
 
 参考资料：https://blog.csdn.net/caoxiaohong1005/article/details/80000062
+https://www.cnblogs.com/go2sea/p/5625536.html
+https://blog.csdn.net/qq_19431333/article/details/70212663
 参考书籍：《Java并发编程的艺术》
 
 
