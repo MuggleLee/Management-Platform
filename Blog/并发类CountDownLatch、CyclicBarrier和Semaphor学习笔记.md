@@ -472,8 +472,17 @@ availablePermits()：返回此信号量中当前可用的许可数。</br>
 
 接下来，开始撸源码！
 ```java
+    //创建给定的许可数和使用默认非公平模式。
+    public Semaphore(int permits) {
+        sync = new Semaphore.NonfairSync(permits);
+    }
 
+    //创建给定的许可数和根据fair判断使用非公平或公平模式。
+    public Semaphore(int permits, boolean fair) {
+        sync = fair ? new Semaphore.FairSync(permits) : new Semaphore.NonfairSync(permits);
+    }
 ```
+创建Semaphor对象的时候可以选择使用公平模式或者非公平模式。
 
 接下来，开始撸源码！
 ```java
