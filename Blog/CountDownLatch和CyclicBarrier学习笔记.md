@@ -460,7 +460,7 @@ acquire(int n)：从信号量获取给定数目的许可，在提供这些许可
 
 ![并发类Semaphor的tryAcquireShared方法](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_tryAcquireShared_flow.png)
 
-
+![并发类Semaphor的doAcquireSharedInterruptibly方法](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_doAcquireSharedInterruptibly_flow.png)
 release()：释放一个许可，将其返回给信号量。
 release(int n)：释放给定数目的许可，将其返回到信号量。
 availablePermits()：返回此信号量中当前可用的许可数。
