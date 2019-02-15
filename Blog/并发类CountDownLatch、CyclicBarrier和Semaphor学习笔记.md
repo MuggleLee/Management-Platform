@@ -451,36 +451,13 @@ Tue Feb 12 10:56:32 CST 2019 --- pool-1-thread-11
 由运行结果可以看出，每隔一秒就有4个线程执行，可以说明，使用并发类Semaphor可以限制并发线程数量。
 
 使用并发类Semaphor十分简单，只需要掌握几个常用的方法。
-Semaphore(int permits)：创建给定的许可数和使用默认非公平策略。
-Semaphore(int permits,boolean fair)：创建给定的许可数和根据fair判断使用非公平或公平策略。
-acquire()：从信号量获取一个许可，在获取到一个许可前一直将线程阻塞，或者线程被中断。
-acquire(int n)：从信号量获取给定数目的许可，在提供这些许可前一直将线程阻塞，或者线程已被中断。
-**tryAcquireShared方法流程图**</br>
-![并发类Semaphor的tryAcquireShared方法](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_tryAcquireShared_flow.png)
-</br>
-**doAcquireSharedInterruptibly方法流程图**</br>
-![并发类Semaphor的doAcquireSharedInterruptibly方法](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_doAcquireSharedInterruptibly_flow.png)
-</br>
-release()：释放一个许可，将其返回给信号量。</br>
-release(int n)：释放给定数目的许可，将其返回到信号量。</br>
+- Semaphore(int permits)：创建给定的许可数和使用默认非公平策略。
+- Semaphore(int permits,boolean fair)：创建给定的许可数和根据fair判断使用非公平或公平策略。
+- acquire()：从信号量获取一个许可，在获取到一个许可前一直将线程阻塞，或者线程被中断。
+- acquire(int n)：从信号量获取给定数目的许可，在提供这些许可前一直将线程阻塞，或者线程已被中断。
+- release()：释放一个许可，将其返回给信号量。</br>
+- release(int n)：释放给定数目的许可，将其返回到信号量。</br>
 availablePermits()：返回此信号量中当前可用的许可数。</br>
-
-接下来，开始撸源码！
-**并发类Semaphor的两个构造器：创建Semaphor对象的时候可以选择使用公平模式或者非公平模式。**
-```java
-    //创建给定的许可数和使用默认非公平模式。
-    public Semaphore(int permits) {
-        sync = new Semaphore.NonfairSync(permits);
-    }
-
-    //创建给定的许可数和根据fair判断使用非公平或公平模式。
-    public Semaphore(int permits, boolean fair) {
-        sync = fair ? new Semaphore.FairSync(permits) : new Semaphore.NonfairSync(permits);
-    }
-```
-![Semaphor构造器流程图](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_Constructor_flow.png)</br>
-**调用acquire()方法获取一个许可**
-![并发类Semaphor的acquire方法](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_acquire_flow.png)
 
 接下来，开始撸源码！
 ```java
