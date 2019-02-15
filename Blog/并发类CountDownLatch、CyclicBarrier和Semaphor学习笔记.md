@@ -143,7 +143,7 @@ CountDownLatch：一个或多个线程等待其他线程执行完成后再执行
 ![enter image description here](https://raw.githubusercontent.com/MuggleLee/PicGo/master/CountDownLatch--Example.png)
 
 
-CyclicBarrier：多个线程相互等待，到达阻塞点（屏障）后等待其他线程，直到所有线程都达到阻塞点后，阻塞解除并唤醒所有等待线程，所有的线程都继续往下执行。（关键词：“阻塞点”）
+CyclicBarrier：多个线程相互等待，到达阻塞点（屏障）后等待其他线程，直到所有线程都达到阻塞点后，阻塞解除并唤醒所有等待线程，所有的线程都继续往下执行。**<font color=Teal>（关键词：“阻塞点”）</font>**
 
 
 举个栗子：小A、小B，小C三位朋友约定在广州塔见面之后去喝早茶，分别从三处不同的地方赶往广州塔碰面。但由于小C迟到，小A，小B等待小C，直到小C都到达广州塔后再一同去喝早茶。使用并发类CyclicBarrier解释就是，线程A，线程B被阻塞，直到线程C执行到阻塞点后阻塞解除，唤醒所有线程。线程A、B、C都继续往下执行。</br>
@@ -206,7 +206,7 @@ public class CyclicBarrierDemo implements Runnable {
 }
 ```
 
-结果：
+**结果：**
 ```java
 小B到达广州塔... 
 小C路上塞车
