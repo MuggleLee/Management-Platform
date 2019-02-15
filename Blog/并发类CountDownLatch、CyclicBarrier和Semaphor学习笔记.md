@@ -132,12 +132,13 @@ public class CountDownLatch {
 比较困惑的一点是，CyclicBarrier和CountDownLatch两个并发类有什么区别？从概念上和例子上来看，貌似都差不多呀。
 参考多篇大佬博客，总结出以下个人观点：
 
-源码上：
+**源码上区别：**
 CountDownLatch基于AQS实现的；设置了等待线程数后无法重置；
 CyclicBarrier基于Condition和ReentrantLock锁实现；设置等待线程数后可以调用reset()重置；
 
-概念上区别：
+**概念上区别：**
 CountDownLatch：一个或多个线程等待其他线程执行完成后再执行。（关键词：“其他线程执行完成后”）
+
 例子：线程S需要等待线程A、B、C都执行完成后才会执行。</br>
 ![enter image description here](https://raw.githubusercontent.com/MuggleLee/PicGo/master/CountDownLatch--Example.png)
 
