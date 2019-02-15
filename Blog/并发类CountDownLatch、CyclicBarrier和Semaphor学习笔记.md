@@ -670,6 +670,12 @@ public class Semaphore implements java.io.Serializable {
 ![Semaphor构造器流程图](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_Constructor_flow.png)
 
 ![](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_acquire_flow.png)
+
+![](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_tryAcquireShared_flow.png)
+
+![](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_doAcquireSharedInterruptibly_flow.png)
+
+
 参考资料：https://blog.csdn.net/caoxiaohong1005/article/details/80000062
 https://www.cnblogs.com/go2sea/p/5625536.html
 https://blog.csdn.net/qq_19431333/article/details/70212663
