@@ -457,7 +457,7 @@ Tue Feb 12 10:56:32 CST 2019 --- pool-1-thread-11
 - acquire(int n)：从信号量获取给定数目的许可，在提供这些许可前一直将线程阻塞，或者线程已被中断。
 - release()：释放一个许可，将其返回给信号量。</br>
 - release(int n)：释放给定数目的许可，将其返回到信号量。</br>
-availablePermits()：返回此信号量中当前可用的许可数。</br>
+- availablePermits()：返回此信号量中当前可用的许可数。</br>
 
 接下来，开始撸源码！
 ```java
@@ -665,6 +665,8 @@ public class Semaphore implements java.io.Serializable {
     }
 }
 ```
+
+根据源码，分别画出几个常用方法的流程图：
 
 
 
