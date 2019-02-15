@@ -667,8 +667,8 @@ public class Semaphore implements java.io.Serializable {
 ```
 
 根据源码，分别画出几张常用方法的流程图：
-![Semaphor构造器流程图](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_Constructor_flow.png)
-^上角标^
+![Semaphor构造器流程图](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_Constructor_flow.png)</br>
+
 ![并发类Semaphor的acquire方法流程图](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_acquire_flow.png)
 
 ![并发类Semaphor的tryAcquireShared方法流程图](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_tryAcquireShared_flow.png)
@@ -677,10 +677,10 @@ public class Semaphore implements java.io.Serializable {
 
 
 参考资料：
-https://blog.csdn.net/caoxiaohong1005/article/details/80000062
-https://www.cnblogs.com/go2sea/p/5625536.html
-https://blog.csdn.net/qq_19431333/article/details/70212663
-《Java并发编程的艺术》
+https://blog.csdn.net/caoxiaohong1005/article/details/80000062</br>
+https://www.cnblogs.com/go2sea/p/5625536.html</br>
+https://blog.csdn.net/qq_19431333/article/details/70212663</br>
+《Java并发编程的艺术》</br>
 
 
 
