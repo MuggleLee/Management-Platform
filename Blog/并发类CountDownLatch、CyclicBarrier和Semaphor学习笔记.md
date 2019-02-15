@@ -668,15 +668,8 @@ public class Semaphore implements java.io.Serializable {
 
 根据源码，画了一张非公平模式下的流程图：
 
+![Semaphor流程图](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor-flow.png)
 
-
-![Semaphor构造器流程图](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_Constructor_flow.png)</br>
-
-![并发类Semaphor的acquire方法流程图](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_acquire_flow.png)</br>
-
-![并发类Semaphor的tryAcquireShared方法流程图](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_tryAcquireShared_flow.png)</br>
-
-![并发类Semaphor的doAcquireSharedInterruptibly方法流程图](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_doAcquireSharedInterruptibly_flow.png)</br>
 
 
 参考资料：
