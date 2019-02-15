@@ -206,7 +206,7 @@ public class CyclicBarrierDemo implements Runnable {
 }
 ```
 
-**结果：**
+**运行结果：**
 ```java
 小B到达广州塔... 
 小C路上塞车
@@ -458,6 +458,15 @@ Tue Feb 12 10:56:32 CST 2019 --- pool-1-thread-11
 - release()：释放一个许可，将其返回给信号量。</br>
 - release(int n)：释放给定数目的许可，将其返回到信号量。</br>
 - availablePermits()：返回此信号量中当前可用的许可数。</br>
+
+Semaphore(int permits)：创建给定的许可数和使用默认非公平策略。
+Semaphore(int permits,boolean fair)：创建给定的许可数和根据fair判断使用非公平或公平策略。
+acquire()：从信号量获取一个许可，在获取到一个许可前一直将线程阻塞，或者线程被中断。
+acquire(int n)：从信号量获取给定数目的许可，在提供这些许可前一直将线程阻塞，或者线程已被中断。
+release()：释放一个许可，将其返回给信号量。</br>
+release(int n)：释放给定数目的许可，将其返回到信号量。</br>
+availablePermits()：返回此信号量中当前可用的许可数。</br>
+
 
 接下来，开始撸源码！
 ```java
