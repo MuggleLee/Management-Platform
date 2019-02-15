@@ -666,7 +666,10 @@ public class Semaphore implements java.io.Serializable {
 }
 ```
 
-根据源码，分别画出几张常用方法的流程图：
+根据源码，画了一张非公平模式下的流程图：
+
+
+
 ![Semaphor构造器流程图](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_Constructor_flow.png)</br>
 
 ![并发类Semaphor的acquire方法流程图](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_acquire_flow.png)</br>
