@@ -478,12 +478,9 @@ availablePermits()：返回此信号量中当前可用的许可数。</br>
         sync = fair ? new Semaphore.FairSync(permits) : new Semaphore.NonfairSync(permits);
     }
 ```
-
-**调用acquire()方法获取一个许可**
-
-
 ![Semaphor构造器流程图](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_Constructor_flow.png)</br>
-
+**调用acquire()方法获取一个许可**
+![并发类Semaphor的acquire方法](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_acquire_flow.png)
 
 接下来，开始撸源码！
 ```java
