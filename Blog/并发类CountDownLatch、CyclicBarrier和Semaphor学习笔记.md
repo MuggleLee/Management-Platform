@@ -395,13 +395,13 @@ public class CyclicBarrier {
 ![enter image description here](https://raw.githubusercontent.com/MuggleLee/PicGo/master/CyclicBarrier-dowait-flow.png)
 
 # Semaphor
-什么是Semaphor？
+**什么是Semaphor？**
 >Semaphore（信号量）是用来控制同时访问特定资源的线程数量，它通过协调各个线程，以保证合理的使用公共资源。
 
-什么情况下使用Semaphor？
+**什么情况下使用Semaphor？**
 >用于限制获取某种资源的线程数量。
 
-怎样使用Semaphor？
+**怎样使用Semaphor？**
 ```java
 public class SemaphoreDemo {
 
@@ -432,7 +432,7 @@ public class SemaphoreDemo {
 }
 ```
 
-运行结果：
+**运行结果：**
 ```
 Tue Feb 12 10:56:30 CST 2019 --- pool-1-thread-1
 Tue Feb 12 10:56:30 CST 2019 --- pool-1-thread-2
