@@ -1,21 +1,19 @@
 # CountDownLatch
-并发类CountDownLatch是什么？
+**并发类CountDownLatch是什么？**
 >CountDownLatch：一个或多个线程等待其他线程完成操作。
 
-什么情况下使用？
+**什么情况下使用？**
 >某一个动作需要等待其它线程完成后才会触发。
+举个栗子，一个班上50个人，考完试之后需要计算全班同学的总成绩，这种情况使用CountDownLatch并发类就最合适了，每一个人的成绩等于一个线程，需要等待50个线程执行完之后才能执行最后一个动作（计算总成绩）。
 
-有一种业务场景下，某一个动作需要等待其它线程完成后才会触发。举个栗子，一个班上50个人，考完试之后需要计算全班同学的总成绩，这种情况使用CountDownLatch并发类就最合适了，每一个人的成绩等于一个线程，需要等待50个线程执行完之后才能执行最后一个动作（计算总成绩）。
-
-使用该并发类并不难，熟悉几个主要方法就可以。
- - **public CountDownLatch(int count)： //参数count为计数值**
+<font c>使用该并发类并不难，熟悉几个主要方法就可以。
+ - **CountDownLatch(int count)： //参数count为计数值**
  - **await()： 调用await()方法的线程会被挂起，它会等待直到count值为0才继续执行**
  - **await(long timeout,TimeUnit unit)： //和await()类似，只不过等待一定的时间后count值还没变为0的话就会继续执行**
  - **countDown()： //将count值减1**
  - **getCount()：//获取count值**
 
-
-先写个简单的Demo：
+**如何使用并发类CountDownLatch？**
 
 ```java
 public class CountDownLatchDemo implements Runnable {  
@@ -60,6 +58,9 @@ public class CountDownLatchDemo implements Runnable {
 计算 A同学 成绩，成绩是53.0
 所有人的总成绩 97.0
 ```
+
+
+
 好了，知道大概怎么使用这个并发类，接下来开始撸源码！
 ```java
 public class CountDownLatch {
@@ -400,7 +401,7 @@ public class CyclicBarrier {
 ![enter image description here](https://raw.githubusercontent.com/MuggleLee/PicGo/master/CyclicBarrier-dowait-flow.png)
 
 # Semaphor
-**什么是Semaphor？**
+**并发类Semaphor是什么？**
 >Semaphore（信号量）是用来控制同时访问特定资源的线程数量，它通过协调各个线程，以保证合理的使用公共资源。
 
 **什么情况下使用Semaphor？**
