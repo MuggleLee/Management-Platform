@@ -128,8 +128,7 @@ public class CountDownLatch {
 
 # CyclicBarrier
 
-**CyclicBarrier：一组线程相互等待，达到一个共同点再继续执行。**
-<font color=red size=72>color=#00ffff</font>
+**<font color=red>CyclicBarrier：一组线程相互等待，达到一个共同点再继续执行。</font>**
 比较困惑的一点是，CyclicBarrier和CountDownLatch两个并发类有什么区别？从概念上和例子上来看，貌似都差不多呀。
 参考多篇大佬博客，总结出以下个人观点：
 
