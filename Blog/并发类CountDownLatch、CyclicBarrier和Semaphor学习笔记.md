@@ -470,6 +470,7 @@ release(int n)：释放给定数目的许可，将其返回到信号量。</br>
 availablePermits()：返回此信号量中当前可用的许可数。</br>
 
 接下来，开始撸源码！
+**并发类Semaphor的两个构造器：创建Semaphor对象的时候可以选择使用公平模式或者非公平模式。**
 ```java
     //创建给定的许可数和使用默认非公平模式。
     public Semaphore(int permits) {
@@ -481,9 +482,10 @@ availablePermits()：返回此信号量中当前可用的许可数。</br>
         sync = fair ? new Semaphore.FairSync(permits) : new Semaphore.NonfairSync(permits);
     }
 ```
-**Semaphor构造器流程图**</br>
+
+
 ![Semaphor构造器流程图](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_Constructor_flow.png)</br>
-创建Semaphor对象的时候可以选择使用公平模式或者非公平模式。
+
 
 接下来，开始撸源码！
 ```java
