@@ -455,7 +455,7 @@ Semaphore(int permits)：创建给定的许可数和使用默认非公平策略�
 Semaphore(int permits,boolean fair)：创建给定的许可数和根据fair判断使用非公平或公平策略。
 ![Semaphor构造器流程图](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_Constructor_flow.png)
 acquire()：从信号量获取一个许可，在获取到一个许可前一直将线程阻塞，或者线程被中断。
-acquire(int n)：从信号量获取给定数目的许可，在提供这些许可前一直将线程阻塞，或者线程已被中断。
+acquire(int n)：从信号量获取给定数目的许可，在提供这些许可前一直将线程阻塞，或者线程已被中断。</br>
 ![并发类Semaphor的acquire方法](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_acquire_flow.png)
 
 ![并发类Semaphor的tryAcquireShared方法](https://raw.githubusercontent.com/MuggleLee/PicGo/master/Semaphor_tryAcquireShared_flow.png)
