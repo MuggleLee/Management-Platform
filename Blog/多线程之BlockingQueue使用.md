@@ -1,4 +1,4 @@
 # BlockingQueue
 
 
-简介：由字面意思可以知道，这是一个阻塞队列。BlockingQueue是一个接口，
+简介：BlockingQueue是一个先进先出的阻塞队列。
