@@ -1,4 +1,4 @@
 # BlockingQueue
 
 
-简介：BlockingQueue是一个先进先出的阻塞队列。
+简介：BlockingQueue是一个先进先出的阻塞队列。常用于
