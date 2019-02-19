@@ -77,3 +77,4 @@ public interface BlockingQueue<E> extends Queue<E> {
 
 
 实现BlockingQueue接口的实现类如下：
+![BlockingQueue及其子类](https://raw.githubusercontent.com/MuggleLee/PicGo/master/BlockingQueue%E5%8F%8A%E5%85%B6%E5%AD%90%E7%B1%BB.png)
