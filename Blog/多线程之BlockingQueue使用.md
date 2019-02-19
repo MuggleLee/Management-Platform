@@ -80,3 +80,11 @@ public interface BlockingQueue<E> extends Queue<E> {
 ![BlockingQueue及其子类](https://raw.githubusercontent.com/MuggleLee/PicGo/master/BlockingQueue%E5%8F%8A%E5%85%B6%E5%AD%90%E7%B1%BB.png)
 
 
+
+ArrayBlockingQueue	
+LinkedBlockingQueue
+PriorityBlockingQueue	
+DelayQueue
+SynchronousQueue	
+LinkedTransferQueue	
+LinkedBlockingDeque
