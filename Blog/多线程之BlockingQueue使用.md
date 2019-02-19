@@ -11,9 +11,9 @@ BlockingQueue继承了Queue接口，所以在了解BlockingQueue接口之前，�
 ```java
 public interface Queue<E> extends Collection<E> {
 
-    boolean add(E e);
+    boolean add(E e);////将一个非空非null元素插入到该队列，如果插入成功返回true,不成功抛出异常
 
-    boolean offer(E e);
+    boolean offer(E e);////将一个非空非null元素插入到该队列，如果插入成功返回true,不成功返回false
 
     E remove();
 
