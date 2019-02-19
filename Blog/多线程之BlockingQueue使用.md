@@ -15,12 +15,12 @@ public interface Queue<E> extends Collection<E> {
 
     boolean offer(E e);////将一个非空非null元素插入到该队列，如果插入成功返回true,不成功返回false
 
-    E remove();
+    E remove();//删除当前队列的头部元素，并返回头部元素,如果为空，抛出异常
 
-    E poll();
+    E poll();//删除当前队列的头部元素，并返回头部元素,如果为空，返回null
 
-    E element();
+    E element();//获取当前队列的头部元素，如果为空，抛出异常
 
-    E peek();
+    E peek();//获取当前队列的头部元素，如果为空，返回null
 }
 ```
