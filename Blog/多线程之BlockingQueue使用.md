@@ -36,6 +36,7 @@ public interface BlockingQueue<E> extends Queue<E> {
     //将给定的元素设置到队列中，如果设置成功返回true, 否则返回false. 如果e值为空则抛出空指针异常。
     boolean offer(E e);
 
+    //将元素设置到队列中，如果队列中没有多余的空间，该方法会一直阻塞，直到队列中有多余的空间。
     void put(E e) throws InterruptedException;
 
     //将元素设置到队列中，如果队列中没有多余的空间，该方法会一直阻塞，直到队列中有多余的空间。
@@ -68,11 +69,11 @@ public interface BlockingQueue<E> extends Queue<E> {
 ```
 
 总结归纳成表格如下：
-||抛出异常|返回特殊值|返回特殊值|
+||抛出异常|返回特殊值|阻塞|
 |-|-|-|-|
 |插入|add|offer|put|
 |移除|remove|poll|take|
-|检查|element|peek|
+|检查|element|peek/contains|
 
 
 
