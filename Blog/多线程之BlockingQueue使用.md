@@ -39,6 +39,7 @@ public interface BlockingQueue<E> extends Queue<E> {
     boolean offer(E e, long timeout, TimeUnit unit)
             throws InterruptedException;
 
+    //从队列中获取值。如果队列中没有值，线程会一直阻塞，直到队列中有值，并且该方法取得了该值。
     E take() throws InterruptedException;
 
     E poll(long timeout, TimeUnit unit)
