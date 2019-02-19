@@ -58,8 +58,11 @@ public interface BlockingQueue<E> extends Queue<E> {
 ```
 
 总结归纳成表格如下：
-||抛出异常|返回特殊值|
-|-|-|-|
-|插入|add|offer|take|
-|移除|remove|poll|
+||抛出异常|返回特殊值|返回特殊值|
+|-|-|-|-|
+|插入|add|offer|put|
+|移除|remove|poll|take|
 |检查|element|peek|
+
+
+
