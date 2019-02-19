@@ -7,3 +7,20 @@
 BlockingQueue继承了Queue接口，所以BlockingQueue接口除了继承Queue接口的add()、offer()、remove()、poll()、element()、peek()之外，还额外添加了put()、take()、remainingCapacity()、contains()、drainTo()方法
 
 BlockingQueue继承了Queue接口，所以在了解BlockingQueue接口之前，先了解一下Queue接口有哪些抽象方法。
+
+```java
+public interface Queue<E> extends Collection<E> {
+
+    boolean add(E e);
+
+    boolean offer(E e);
+
+    E remove();
+
+    E poll();
+
+    E element();
+
+    E peek();
+}
+```
