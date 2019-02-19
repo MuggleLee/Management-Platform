@@ -86,9 +86,9 @@ LinkedBlockingQueue：一个由链表结构组成的有界阻塞队列，遵循F
 LinkedBlockingDeque：一个由链表结构组成的双向阻塞队列。默认和最大长度为Integer.MAX_VALUE。
 LinkedTransferQueue：一个由链表结构组成的无界阻塞队列。
 PriorityBlockingQueue：一个支持优先级排序的无界阻塞队列。
-DelayQueue
+DelayQueue：一个使用优先级队列实现的无界阻塞队列。
 DelayedWorkQueue
-SynchronousQueue	
+SynchronousQueue：一个不存储元素的阻塞队列。
 
 参考资料：
 [http://www.cnblogs.com/zaizhoumo/p/7786793.html]()
