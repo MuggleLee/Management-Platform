@@ -83,8 +83,9 @@ public interface BlockingQueue<E> extends Queue<E> {
 
 ArrayBlockingQueue	
 LinkedBlockingQueue
-PriorityBlockingQueue	
-DelayQueue
-SynchronousQueue	
 LinkedTransferQueue	
 LinkedBlockingDeque
+PriorityBlockingQueue	
+DelayQueue
+DelayedWorkQueue
+SynchronousQueue	
