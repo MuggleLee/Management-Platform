@@ -32,7 +32,7 @@ public interface Queue<E> extends Collection<E> {
 |检查|element|peek|
 
 
-BlockingQueue接口继承Queue接口的基础上，还额外添加了如下几个方法：
+BlockingQueue接口继承Queue接口的方法基础上，还额外添加了如下几个方法：
 ```java
 
 ```
