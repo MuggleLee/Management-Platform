@@ -25,6 +25,8 @@ public interface Queue<E> extends Collection<E> {
 }
 ```
 
-|column1|column2|column3|
+||抛出异常|返回特殊值|
 |-|-|-|
-|content1|content2|content3|
+|插入|add|offer|
+|移除|remove|poll|
+|检查|elemen|content3|
