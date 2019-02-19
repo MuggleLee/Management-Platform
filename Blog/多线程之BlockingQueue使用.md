@@ -81,7 +81,7 @@ public interface BlockingQueue<E> extends Queue<E> {
 
 
 
-ArrayBlockingQueue	
+ArrayBlockingQueue
 LinkedBlockingQueue
 LinkedTransferQueue	
 LinkedBlockingDeque
