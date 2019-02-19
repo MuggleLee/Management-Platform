@@ -68,7 +68,7 @@ public interface BlockingQueue<E> extends Queue<E> {
 
 ```
 
-总结归纳成如下：
+总结归纳如下：
 ||抛出异常|返回特殊值|阻塞|超时|
 |-|-|-|-|-|
 |插入|add|offer|put|offer(e,timeout,unit)|
