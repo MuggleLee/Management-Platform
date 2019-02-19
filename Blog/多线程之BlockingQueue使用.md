@@ -94,11 +94,11 @@ SynchronousQueue：不存储元素的阻塞队列，默认是非公平锁。
 |-|-|-|-|
 |ArrayBlockingQueue|✔|✔|
 |LinkedBlockingQueue|✔|✔|
-|LinkedBlockingDeque|✔|✔|
-|LinkedTransferQueue|✖|content3|
-|PriorityBlockingQueue|✖|content3|
-|DelayQueue|✖|content3|
-|SynchronousQueue|✔|content3|
+|LinkedBlockingDeque|✔|✖|
+|LinkedTransferQueue|✖|✔|
+|PriorityBlockingQueue|✖|✔|
+|DelayQueue|✖|✔|
+|SynchronousQueue|✔|✔|
 
 
 参考资料：
