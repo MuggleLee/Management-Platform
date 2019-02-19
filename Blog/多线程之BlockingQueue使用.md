@@ -31,3 +31,8 @@ public interface Queue<E> extends Collection<E> {
 |移除|remove|poll|
 |检查|element|peek|
 
+
+BlockingQueue接口继承Queue接口的基础上，还额外添加了如下几个方法：
+```java
+
+```
