@@ -24,3 +24,7 @@ public interface Queue<E> extends Collection<E> {
     E peek();//获取当前队列的头部元素，如果为空，返回null
 }
 ```
+
+|column1|column2|column3|
+|-|-|-|
+|content1|content2|content3|
