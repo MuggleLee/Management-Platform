@@ -23,16 +23,36 @@ public interface Queue<E> extends Collection<E> {
 
     E peek();//获取当前队列的头部元素，如果为空，返回null
 }
-```
-总结归纳成表格如下：
-||抛出异常|返回特殊值|
-|-|-|-|
-|插入|add|offer|
-|移除|remove|poll|
-|检查|element|peek|
+``·
 
 
 BlockingQueue接口继承Queue接口方法基础上，还额外添加了如下几个方法：
 ```java
+public interface BlockingQueue<E> extends Queue<E> {
+
+    boolean add(E e);
+
+    boolean offer(E e);
+
+    void put(E e) throws InterruptedException;
+
+    boolean offer(E e, long timeout, TimeUnit unit)
+            throws InterruptedException;
+
+    E take() throws InterruptedException;
+
+    E poll(long timeout, TimeUnit unit)
+            throws InterruptedException;
+
+    int remainingCapacity();
+
+    boolean remove(Object o);
+
+    public boolean contains(Object o);
+
+    int drainTo(Collection<? super E> c);
+
+    int drainTo(Collection<? super E> c, int maxElements);
+}
 
 ```
