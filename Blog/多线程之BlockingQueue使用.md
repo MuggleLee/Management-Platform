@@ -24,9 +24,10 @@ public interface Queue<E> extends Collection<E> {
     E peek();//获取当前队列的头部元素，如果为空，返回null
 }
 ```
-
+总结归纳成表格如下：
 ||抛出异常|返回特殊值|
 |-|-|-|
 |插入|add|offer|
 |移除|remove|poll|
-|检查|elemen|content3|
+|检查|element|peek|
+
