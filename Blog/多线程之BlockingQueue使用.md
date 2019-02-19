@@ -32,7 +32,28 @@ public interface Queue<E> extends Collection<E> {
 |检查|element|peek|
 
 
-BlockingQueue接口继承Queue接口的方法基础上，还额外添加了如下几个方法：
+BlockingQueue接口继承Queue接口方法的基础上，还额外添加了如下几个方法：
 ```java
+public interface BlockingQueue<E> extends Queue<E> {
 
+    void put(E e) throws InterruptedException;
+
+    boolean offer(E e, long timeout, TimeUnit unit)
+            throws InterruptedException;
+
+    E take() throws InterruptedException;
+
+    E poll(long timeout, TimeUnit unit)
+            throws InterruptedException;
+
+    int remainingCapacity();
+
+    boolean remove(Object o);
+
+    public boolean contains(Object o);
+
+    int drainTo(Collection<? super E> c);
+
+    int drainTo(Collection<? super E> c, int maxElements);
+}
 ```
