@@ -73,4 +73,4 @@ public interface BlockingQueue<E> extends Queue<E> {
 |检查|element|peek/contains|
 
 
-
+根据实际需求选取适合的插入、移除方法。
