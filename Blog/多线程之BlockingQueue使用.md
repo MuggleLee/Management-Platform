@@ -36,6 +36,7 @@ public interface BlockingQueue<E> extends Queue<E> {
 
     void put(E e) throws InterruptedException;
 
+    //将元素设置到队列中，如果队列中没有多余的空间，该方法会一直阻塞，直到队列中有多余的空间。
     boolean offer(E e, long timeout, TimeUnit unit)
             throws InterruptedException;
 
