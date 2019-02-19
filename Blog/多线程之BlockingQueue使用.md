@@ -84,8 +84,11 @@ public interface BlockingQueue<E> extends Queue<E> {
 ArrayBlockingQueue：一个由数组结构组成的有界阻塞队列，遵循FIFO原则，可选择公平锁或者非公平锁，最大长度为Integer.MAX_VALUE。
 LinkedBlockingQueue：一个由链表结构组成的有界阻塞队列，遵循FIFO原则，默认和最大长度为Integer.MAX_VALUE。
 LinkedBlockingDeque：一个由链表结构组成的双向阻塞队列。默认和最大长度为Integer.MAX_VALUE。
-LinkedTransferQueue	
-PriorityBlockingQueue	
+LinkedTransferQueue：一个由链表结构组成的无界阻塞队列。
+PriorityBlockingQueue：一个支持优先级排序的无界阻塞队列。
 DelayQueue
 DelayedWorkQueue
 SynchronousQueue	
+
+参考资料：
+[http://www.cnblogs.com/zaizhoumo/p/7786793.html]()
