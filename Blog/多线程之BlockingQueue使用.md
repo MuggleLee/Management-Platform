@@ -46,10 +46,13 @@ public interface BlockingQueue<E> extends Queue<E> {
     E poll(long timeout, TimeUnit unit)
             throws InterruptedException;
 
+    //获取队列中剩余的空间
     int remainingCapacity();
 
+    //从队列中移除指定的值。
     boolean remove(Object o);
 
+    //判断队列中是否拥有该值。
     public boolean contains(Object o);
 
     int drainTo(Collection<? super E> c);
