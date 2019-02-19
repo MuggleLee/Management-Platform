@@ -85,7 +85,7 @@ ArrayBlockingQueue：一个由数组结构组成的有界阻塞队列，遵循FI
 LinkedBlockingQueue：一个由链表结构组成的有界阻塞队列，遵循FIFO原则，默认和最大长度为Integer.MAX_VALUE。
 LinkedBlockingDeque：一个由链表结构组成的双向阻塞队列。默认和最大长度为Integer.MAX_VALUE。
 LinkedTransferQueue：一个由链表结构组成的无界阻塞队列。
-PriorityBlockingQueue：一个支持优先级排序的无界阻塞队列。
+PriorityBlockingQueue：一个支持优先级排序的无界阻塞队列，默认自然序进行排序，也可以自定义实现compareTo()方法来指定元素排序规则，不能保证同优先级元素的顺序。
 DelayQueue：一个使用优先级队列实现的无界阻塞队列。
 SynchronousQueue：不存储元素的阻塞队列，默认是非公平锁。
 
