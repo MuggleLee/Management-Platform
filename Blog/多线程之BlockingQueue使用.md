@@ -81,7 +81,7 @@ public interface BlockingQueue<E> extends Queue<E> {
 
 
 
-ArrayBlockingQueue
+ArrayBlockingQueue：一个由数组结构组成的有界阻塞队列，遵循FIFO原则，可选择公平锁或者非公平锁。
 LinkedBlockingQueue
 LinkedTransferQueue	
 LinkedBlockingDeque
