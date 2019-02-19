@@ -23,7 +23,7 @@ public interface Queue<E> extends Collection<E> {
 
     E peek();//获取当前队列的头部元素，如果为空，返回null
 }
-``·
+```
 
 
 BlockingQueue接口继承Queue接口方法基础上，还额外添加了如下几个方法：
@@ -56,3 +56,10 @@ public interface BlockingQueue<E> extends Queue<E> {
 }
 
 ```
+
+总结归纳成表格如下：
+||抛出异常|返回特殊值|
+|-|-|-|
+|插入|add|offer|take|
+|移除|remove|poll|
+|检查|element|peek|
