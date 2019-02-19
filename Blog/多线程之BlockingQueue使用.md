@@ -6,5 +6,4 @@
 
 BlockingQueue继承了Queue接口，所以BlockingQueue接口除了继承Queue接口的add()、offer()、remove()、poll()、element()、peek()之外，还额外添加了put()、take()、remainingCapacity()、contains()、drainTo()方法
 
-
-说到BlockingQueue接口可能有点陌生，但对于LinkedBlockingQueue接口应该有
+BlockingQueue继承了Queue接口，所以在了解BlockingQueue接口之前，先了解一下Queue接口有
