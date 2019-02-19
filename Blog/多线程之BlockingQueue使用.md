@@ -30,8 +30,10 @@ BlockingQueue接口继承Queue接口方法基础上，还额外添加了如下�
 ```java
 public interface BlockingQueue<E> extends Queue<E> {
 
+    //将给定元素设置到队列中，如果设置成功返回true, 否则返回false。
     boolean add(E e);
 
+    //将给定的元素设置到队列中，如果设置成功返回true, 否则返回false. 如果e值为空则抛出空指针异常。
     boolean offer(E e);
 
     void put(E e) throws InterruptedException;
@@ -43,6 +45,7 @@ public interface BlockingQueue<E> extends Queue<E> {
     //从队列中获取值。如果队列中没有值，线程会一直阻塞，直到队列中有值，并且该方法取得了该值。
     E take() throws InterruptedException;
 
+    //在给定的时间里，从队列中获取值，如果没有取到会抛出异常。
     E poll(long timeout, TimeUnit unit)
             throws InterruptedException;
 
@@ -55,8 +58,10 @@ public interface BlockingQueue<E> extends Queue<E> {
     //判断队列中是否拥有该值。
     public boolean contains(Object o);
 
+    //将队列中值，全部移除，并发设置到给定的集合中。
     int drainTo(Collection<? super E> c);
 
+    //指定最多数量限制将队列中值，全部移除，并发设置到给定的集合中。
     int drainTo(Collection<? super E> c, int maxElements);
 }
 
