@@ -87,7 +87,7 @@ LinkedBlockingDeque：一个由链表结构组成的双向阻塞队列。默认�
 LinkedTransferQueue：一个由链表结构组成的无界阻塞队列。
 PriorityBlockingQueue：一个支持优先级排序的无界阻塞队列。
 DelayQueue：一个使用优先级队列实现的无界阻塞队列。
-SynchronousQueue：不存储元素的阻塞队列，可选择公平锁或者非公平锁。
+SynchronousQueue：不存储元素的阻塞队列，默认是非公平模式。
 
 参考资料：
 [http://www.cnblogs.com/zaizhoumo/p/7786793.html]()
