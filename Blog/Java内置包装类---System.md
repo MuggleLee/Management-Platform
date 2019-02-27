@@ -55,7 +55,7 @@ public final static PrintStream err = null;
 
 那System类中还有什么常用的方法呢？
 
-1.arraycopy()方法
+**1.arraycopy()方法**
 
 ```java
 public static native void arraycopy(Object src,int srcPos,Object dest,int destPos,int length);
@@ -81,10 +81,14 @@ public class ArrayCopyExample {
 
 输出结果：
 ```java
-
+1
+2
+3
+d
+e
 ```
 
-
+2.
 
 
 
