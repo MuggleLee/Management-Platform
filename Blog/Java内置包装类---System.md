@@ -166,7 +166,7 @@ public class SystemExample {
     public static void main(String[] args) {
         System.out.println("Hello World !");
         System.exit(0);
-        System.out.println("Hello Muggle Lee");
+        System.out.println("Hello Java");
     }
 }
 ```
@@ -174,7 +174,7 @@ public class SystemExample {
 ```java
 Hello World !
 ```
-
+由输出结果可知，执行System.exit(0);终止
 
 **4.currentTimeMillis()方法**
 
