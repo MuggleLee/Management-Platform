@@ -71,3 +71,19 @@ public final static PrintStream err = null;
 
 
 
+参考资料：[http://c.biancheng.net/view/904.html](http://c.biancheng.net/view/904.html)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
