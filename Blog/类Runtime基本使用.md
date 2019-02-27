@@ -2,4 +2,4 @@
 
 日常开发中，Runtime类并不常用，所以我对Runtime的基本使用并不了解，借此篇文章加深对Runtime类加深理解。
 
-Runtime类代表Java程序的运行时环境，每个Java程序都有一个与之对应的Runtime实例，应用程序通过该对象与其运行时环境相连。
+Runtime类代表Java程序的运行时环境，每当一个JVM进程启动的时候都会存在一个Runtime对象，随着JVM的存在而存在的
