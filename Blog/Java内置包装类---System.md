@@ -64,8 +64,19 @@ public static native void arraycopy(Object src,int srcPos,Object dest,int destPo
 
 
 示例：
-```language
-
+```java
+public class ArrayCopyExample {
+    public static void main(String[] args) {
+        //原数组
+        Object[] destArray = {1,2,3,4,5,6,7,8};
+        //目标数组
+        Object[] destPosArray = {"a","b","c","d","e"};
+        System.arraycopy(destArray,0,destPosArray,0,3);
+        for (int i = 0; i < destPosArray.length; i++) {
+            System.out.println(destPosArray[i]);
+        }
+    }
+}
 ```
 
 
