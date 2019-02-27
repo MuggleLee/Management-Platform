@@ -108,7 +108,7 @@ e
 ```
 
 
-执行getProperty()方法可以获取系统属性，通过执行getProperty()方法传入key参数
+通过执行getProperty()方法传入key参数可以获取系统属性，
 
 
 
