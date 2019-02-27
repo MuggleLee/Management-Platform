@@ -126,7 +126,7 @@ public class SystemExample {
 }
 ```
 
-|系统属性|column2|
+|系统属性|描述|
 |-|-|
 |content1|content2|
 
