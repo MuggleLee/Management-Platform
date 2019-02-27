@@ -174,7 +174,7 @@ public class SystemExample {
 ```java
 Hello World !
 ```
-由输出结果可知，执行System.exit(0);终止
+由输出结果可知，执行System.exit(0)终止了JVM，所以下面的"Hello Java"没有执行到。
 
 **4.currentTimeMillis()方法**
 
