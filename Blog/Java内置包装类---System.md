@@ -13,4 +13,4 @@ public final static PrintStream err = null;
 
 由于这3个变量都是静态的，所以System.out.println()这行代码实际上是成员变量out调用PrintStream类的println方法。
 
-但是，这3个成员变量都没有实例化，怎么可以调用PrintStream中的方法呢？
+但是，这3个成员变量都没有实例化，怎么可以调用PrintStream中的方法呢？System类中有一个静态方法initializeSystemClass，
