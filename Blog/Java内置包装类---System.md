@@ -138,7 +138,7 @@ public class SystemExample {
 |user.name|用户的账户名称|
 |user.dir|用户的当前工作目录|
 
-譬如想要获取当前Java类路径
+譬如想要获取用户的当前工作目录
 
 ```java
 public class SystemExample {
@@ -150,7 +150,7 @@ public class SystemExample {
 ```
 
 
-
+**3.exit() 方法**
 
 
 
