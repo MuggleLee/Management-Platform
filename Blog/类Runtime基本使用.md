@@ -21,7 +21,7 @@ public native long freeMemory();
 public native long totalMemory();
 //返回 Java 虚拟机试图使用的最大内存量，如果内存本身没有限制，则返回值 Long.MAX_VALUE，以字节为单位。
 public native long maxMemory();
-//返回可用处理器的数目
+//Java虚拟机的可用的处理器数量
 public native int availableProcessors();
 ```
 
