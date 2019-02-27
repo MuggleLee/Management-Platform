@@ -180,7 +180,7 @@ Hello World !
 ```java
 public static native long currentTimeMillis();
 ```
-这是一个native
+这个方法是获取当前系统的时间戳
 
 
 参考资料：http://c.biancheng.net/view/904.html
