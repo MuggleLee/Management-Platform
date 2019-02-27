@@ -5,4 +5,6 @@
 
 ```java
 public final static InputStream in = null;
+public final static PrintStream out = null;
+public final static PrintStream err = null;
 ```
