@@ -8,7 +8,7 @@ public final static PrintStream out = null;
 public final static PrintStream err = null;
 ```
 
-由于这3个变量都是静态的，所以System.out.println()这行代码实际上是成员变量out调用PrintStream类的println方法。（现在先不过多介绍PrintStream，就知道println方法是可以输出字段的）
+由于这3个变量都是静态的，所以System.out.println("Hello World !")这行代码实际上是成员变量out调用PrintStream类的println方法。（现在先不过多介绍PrintStream，就知道println方法是可以输出字段的）
 
 但是，这3个成员变量都没有实例化，怎么可以调用类PrintStream中的方法呢？System类中有一个静态方法initializeSystemClass，根据方法名就可以知道是初始化System类的。
 ```java
