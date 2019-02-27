@@ -89,9 +89,19 @@ e
 ```
 
 **2.getProperty()和getProperties()方法**
+```java
+public static Properties getProperties() {
+        SecurityManager sm = getSecurityManager();
+        if (sm != null) {
+            sm.checkPropertiesAccess();
+        }
+
+        return props;
+    }
+```
 
 
-
+执行getProperty()方法可以获取系统属性，
 
 
 
