@@ -177,7 +177,10 @@ Hello World !
 由输出结果可知，执行System.exit(0)终止了JVM，所以下面的"Hello Java"没有执行到。
 
 **4.currentTimeMillis()方法**
-
+```java
+public static native long currentTimeMillis();
+```
+这是一个native
 
 
 参考资料：http://c.biancheng.net/view/904.html
