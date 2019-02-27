@@ -55,6 +55,7 @@ public final static PrintStream err = null;
 
 那System类中还有什么常用的方法呢？
 
+1.
 
 
 
@@ -70,8 +71,7 @@ public final static PrintStream err = null;
 
 
 
-
-参考资料：[http://c.biancheng.net/view/904.html](http://c.biancheng.net/view/904.html)
+参考资料：http://c.biancheng.net/view/904.html
 
 
 
