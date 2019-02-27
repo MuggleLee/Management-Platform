@@ -110,8 +110,7 @@ e
 ```
 
 
-通过执行getProperty()方法传入key参数可以获取系统属性。那可以获取哪些系统属性呢？
-可以调用getProperties()方法查看System这个类可以获取哪些系统属性。
+通过执行getProperty()方法传入key参数可以获取系统属性。调用getProperties()方法查看System这个类可以获取哪些系统属性。
 
 ```java
 public class SystemExample {
@@ -176,7 +175,7 @@ public class SystemExample {
 ```java
 Hello World !
 ```
-由输出结果可知，执行System.exit(0)终止了JVM，所以下面的"Hello Java"没有执行到。
+由输出结果可知，执行System.exit(0)终止了JVM，所以下面的"Hello Java"没有执行。
 
 **4.currentTimeMillis()方法**
 ```java
