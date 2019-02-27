@@ -157,7 +157,8 @@ public static void exit(int status) {
 }
 ```
 执行该方法可以终止目前正在运行的Java虚拟机。参数为"0"代表正常终止，参数不为"0"代表异常终止。
-<font color="red">*这是唯一一个能够退出程序并不执行finally的情况。
+
+<font color="red" font-size="10px;">*这是唯一一个能够退出程序并不执行finally的情况。</font>
 
 
 参考资料：http://c.biancheng.net/view/904.html
