@@ -13,4 +13,37 @@ public final static PrintStream err = null;
 
 由于这3个变量都是静态的，所以System.out.println()这行代码实际上是成员变量out调用PrintStream类的println方法。
 
-但是，这3个成员变量都没有实例化，怎么可以调用类PrintStream中的方法呢？System类中有一个静态方法initializeSystemClass，根据方法名就可以知道是初始化System类的
+但是，这3个成员变量都没有实例化，怎么可以调用类PrintStream中的方法呢？System类中有一个静态方法initializeSystemClass，根据方法名就可以知道是初始化System类的。
+```java
+private static void initializeSystemClass() {
+
+        props = new Properties();
+        initProperties(props);  // initialized by the VM
+
+        sun.misc.VM.saveAndRemoveProperties(props);
+
+
+        lineSeparator = props.getProperty("line.separator");
+        sun.misc.Version.init();
+
+        FileInputStream fdIn = new FileInputStream(FileDescriptor.in);
+        FileOutputStream fdOut = new FileOutputStream(FileDescriptor.out);
+        FileOutputStream fdErr = new FileOutputStream(FileDescriptor.err);
+        setIn0(new BufferedInputStream(fdIn));
+        setOut0(newPrintStream(fdOut, props.getProperty("sun.stdout.encoding")));
+        setErr0(newPrintStream(fdErr, props.getProperty("sun.stderr.encoding")));
+
+        loadLibrary("zip");
+
+        Terminator.setup();
+
+        sun.misc.VM.initializeOSEnvironment();
+
+        Thread current = Thread.currentThread();
+        current.getThreadGroup().add(current);
+
+        setJavaLangAccess();
+
+        sun.misc.VM.booted();
+    }
+```
