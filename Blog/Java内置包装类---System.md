@@ -51,7 +51,7 @@ public final static PrintStream err = null;
     private static native void setErr0(PrintStream err);
 ```
 
-在initializeSystemClass方法中，调用setIn0，setOut0，setErr0这几个native方法，这几个方法就是分别初始化对应的成员变量。
+在initializeSystemClass方法中，分别调用setIn0，setOut0，setErr0这几个native方法来初始化对应的成员变量。
 
 
 
