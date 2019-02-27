@@ -8,3 +8,6 @@ public final static InputStream in = null;
 public final static PrintStream out = null;
 public final static PrintStream err = null;
 ```
+
+
+System类中包含3个静态变量
