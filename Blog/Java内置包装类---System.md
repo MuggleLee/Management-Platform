@@ -11,5 +11,5 @@ public final static PrintStream out = null;
 public final static PrintStream err = null;
 ```
 
-由于这3个变量都是静态的，所以System.out.println()这行代码实际上是System类调用成员变量out
+由于这3个变量都是静态的，所以System.out.println()这行代码实际上是成员变量out
 
