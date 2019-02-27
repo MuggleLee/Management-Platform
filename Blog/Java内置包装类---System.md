@@ -140,6 +140,14 @@ public class SystemExample {
 
 譬如想要获取当前Java类路径
 
+```java
+public class SystemExample {
+    public static void main(String[] args) {
+        String userDir = System.getProperty("user.dir");
+        System.out.println(userDir);
+    }
+}
+```
 
 
 
