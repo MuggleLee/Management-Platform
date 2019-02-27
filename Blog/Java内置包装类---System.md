@@ -111,6 +111,20 @@ e
 通过执行getProperty()方法传入key参数可以获取系统属性。那可以获取哪些系统属性呢？
 可以调用getProperties()方法查看System这个类可以获取哪些系统属性。
 
+```java
+public class SystemExample {
+    public static void main(String[] args) {
+        Properties properties = System.getProperties();
+        Set set = properties.stringPropertyNames();
+        System.out.println(set.size());
+        Iterator<String> it = set.iterator();
+        while(it.hasNext()){
+            String name = it.next();
+            System.out.println(name);
+        }
+    }
+}
+```
 
 
 
