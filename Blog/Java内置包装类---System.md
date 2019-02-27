@@ -90,12 +90,19 @@ e
 
 **2.getProperty()和getProperties()方法**
 ```java
-public static Properties getProperties() {
+   public static String getProperty(String key) {
+        checkKey(key);
+        SecurityManager sm = getSecurityManager();
+        if (sm != null) {
+            sm.checkPropertyAccess(key);
+        }
+        return props.getProperty(key);
+    }
+    public static Properties getProperties() {
         SecurityManager sm = getSecurityManager();
         if (sm != null) {
             sm.checkPropertiesAccess();
         }
-
         return props;
     }
 ```
