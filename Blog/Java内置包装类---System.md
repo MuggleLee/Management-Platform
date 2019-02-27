@@ -160,6 +160,11 @@ public static void exit(int status) {
 
 <font color="red" size="2px">***这是唯一一个能够退出程序并不执行finally的情况。**</font>
 
+示例：
+```java
+
+```
+
 
 **4.currentTimeMillis()方法**
 
