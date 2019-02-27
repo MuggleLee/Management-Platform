@@ -151,6 +151,12 @@ public class SystemExample {
 
 
 **3.exit() 方法**
+```java
+public static void exit(int status) {
+        Runtime.getRuntime().exit(status);
+}
+```
+
 
 
 
