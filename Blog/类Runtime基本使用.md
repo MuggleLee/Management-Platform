@@ -21,7 +21,7 @@ public native long freeMemory();
 public native long totalMemory();
 //返回 Java 虚拟机试图使用的最大内存量，如果内存本身没有限制，则返回值 Long.MAX_VALUE，以字节为单位。
 public native long maxMemory();
-//Java虚拟机的可用的处理器数量
+// Java 虚拟机的可用的处理器数量
 public native int availableProcessors();
 ```
 
@@ -30,8 +30,7 @@ public native int availableProcessors();
 public class RuntimeExample {
     public static void main(String[] args) throws IOException {
         Runtime runtime = Runtime.getRuntime();
-
-        System.out.println(runtime.availableProcessors());
+        System.out.println("Java 虚拟机的可用的处理器数量: " + runtime.availableProcessors());
         System.out.println("Java 虚拟机中的空闲内存量: " + runtime.freeMemory());
         System.out.println("Java 虚拟机中的内存总量: " + runtime.totalMemory());
         System.out.println("Java 虚拟机试图使用的最大内存量: " + runtime.maxMemory());
@@ -40,5 +39,8 @@ public class RuntimeExample {
 ```
 输出结果：
 ```java
-
+Java 虚拟机的可用的处理器数量: 6
+Java 虚拟机中的空闲内存量: 124186000
+Java 虚拟机中的内存总量: 126877696
+Java 虚拟机试图使用的最大内存量: 1870135296
 ```
