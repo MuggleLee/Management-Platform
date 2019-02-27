@@ -128,7 +128,12 @@ public class SystemExample {
 
 |系统属性|描述|
 |-|-|
-|content1|content2|
+|java.version|Java 运行时环境版本|
+|java.version|Java 运行时环境版本|
+|java.version|Java 运行时环境版本|
+|java.version|Java 运行时环境版本|
+|java.version|Java 运行时环境版本|
+|java.version|Java 运行时环境版本|
 
 
 
