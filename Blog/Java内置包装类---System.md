@@ -125,7 +125,7 @@ public class SystemExample {
     }
 }
 ```
-
+常用的系统属性：
 |系统属性|描述|
 |-|-|
 |java.version|Java 运行时环境版本|
@@ -136,26 +136,8 @@ public class SystemExample {
 |path.separator|路径分隔符（在 UNIX 系统中是“:”）|
 |line.separator|行分隔符（在 UNIX 系统中是“/n”）|
 |user.name|用户的账户名称|
-|user.dir|Java 运行时环境版本|
-|java.version|Java 运行时环境版本|
-|java.version|Java 运行时环境版本|
-|java.version|Java 运行时环境版本|
-|java.version|Java 运行时环境版本|
-|java.version|Java 运行时环境版本|
-|java.version|Java 运行时环境版本|
-|java.version|Java 运行时环境版本|
-|java.version|Java 运行时环境版本|
-|java.version|Java 运行时环境版本|
-|java.version|Java 运行时环境版本|
-|java.version|Java 运行时环境版本|
-|java.version|Java 运行时环境版本|
-|java.version|Java 运行时环境版本|
-|java.version|Java 运行时环境版本|
-|java.version|Java 运行时环境版本|
-|java.version|Java 运行时环境版本|
-|java.version|Java 运行时环境版本|
-|java.version|Java 运行时环境版本|
-|java.version|Java 运行时环境版本|
+|user.dir|用户的当前工作目录|
+
 
 
 
