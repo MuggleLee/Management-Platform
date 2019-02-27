@@ -3,7 +3,7 @@
 
 首先就从最熟悉的System.out.println()这行代码入手吧！
 
-System类中包含3个静态变量，分别代表标准输入流，标准
+System类中包含3个静态变量，分别代表标准输入流(in)，标准输出流(out)和标准错误输出流(err)
 
 ```java
 public final static InputStream in = null;
@@ -11,5 +11,5 @@ public final static PrintStream out = null;
 public final static PrintStream err = null;
 ```
 
-
+由于这3个变量都是静态的
 
