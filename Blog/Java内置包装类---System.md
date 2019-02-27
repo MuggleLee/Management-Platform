@@ -57,6 +57,13 @@ public final static PrintStream err = null;
 
 1.
 
+```java
+public static native void arraycopy(Object src,  int  srcPos,
+                                    Object dest, int destPos,
+                                        int length);
+```
+
+
 
 
 
