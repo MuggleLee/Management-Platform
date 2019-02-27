@@ -139,7 +139,7 @@ public class SystemExample {
 |user.dir|用户的当前工作目录|
 
 譬如想要获取用户的当前工作目录
-
+示例：
 ```java
 public class SystemExample {
     public static void main(String[] args) {
