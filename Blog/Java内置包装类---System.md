@@ -132,11 +132,11 @@ public class SystemExample {
 |java.home|Java 安装目录|
 |java.class.path|Java 类路径|
 |os.name|操作系统的名称|
-|java.version|Java 运行时环境版本|
-|java.version|Java 运行时环境版本|
-|java.version|Java 运行时环境版本|
-|java.version|Java 运行时环境版本|
-|java.version|Java 运行时环境版本|
+|file.separator|文件分隔符（在 UNIX 系统中是“/”）|
+|path.separator|路径分隔符（在 UNIX 系统中是“:”）|
+|line.separator|行分隔符（在 UNIX 系统中是“/n”）|
+|user.name|用户的账户名称|
+|user.dir|Java 运行时环境版本|
 |java.version|Java 运行时环境版本|
 |java.version|Java 运行时环境版本|
 |java.version|Java 运行时环境版本|
