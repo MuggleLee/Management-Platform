@@ -22,7 +22,6 @@ private static void initializeSystemClass() {
 
         sun.misc.VM.saveAndRemoveProperties(props);
 
-
         lineSeparator = props.getProperty("line.separator");
         sun.misc.Version.init();
 
