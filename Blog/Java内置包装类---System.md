@@ -180,7 +180,17 @@ Hello World !
 ```java
 public static native long currentTimeMillis();
 ```
-这个方法是获取当前系统的时间戳，时间的格式为当前系统时间与 GMT 时间（格林尼治时间）1970 年 1 月 1 日 0 时 0 分 0 秒所差的毫秒数
+这个方法是获取当前系统的时间戳，时间的格式为当前系统时间与 GMT 时间（格林尼治时间）1970 年 1 月 1 日 0 时 0 分 0 秒所差的毫秒数。
+示例：
+```java
+public class SystemExample {
+    public static void main(String[] args) {
+        long time = System.currentTimeMillis();
+        System.out.println(time);
+    }
+}
+```
+
 
 
 参考资料：http://c.biancheng.net/view/904.html
