@@ -129,6 +129,28 @@ public class SystemExample {
 |系统属性|描述|
 |-|-|
 |java.version|Java 运行时环境版本|
+|java.home|Java 安装目录|
+|java.class.path|Java 类路径|
+|os.name|操作系统的名称|
+|java.version|Java 运行时环境版本|
+|java.version|Java 运行时环境版本|
+|java.version|Java 运行时环境版本|
+|java.version|Java 运行时环境版本|
+|java.version|Java 运行时环境版本|
+|java.version|Java 运行时环境版本|
+|java.version|Java 运行时环境版本|
+|java.version|Java 运行时环境版本|
+|java.version|Java 运行时环境版本|
+|java.version|Java 运行时环境版本|
+|java.version|Java 运行时环境版本|
+|java.version|Java 运行时环境版本|
+|java.version|Java 运行时环境版本|
+|java.version|Java 运行时环境版本|
+|java.version|Java 运行时环境版本|
+|java.version|Java 运行时环境版本|
+|java.version|Java 运行时环境版本|
+|java.version|Java 运行时环境版本|
+|java.version|Java 运行时环境版本|
 |java.version|Java 运行时环境版本|
 |java.version|Java 运行时环境版本|
 |java.version|Java 运行时环境版本|
