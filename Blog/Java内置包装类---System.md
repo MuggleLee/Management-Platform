@@ -153,10 +153,10 @@ public class SystemExample {
 **3.exit() 方法**
 ```java
 public static void exit(int status) {
-        Runtime.getRuntime().exit(status);
+    Runtime.getRuntime().exit(status);
 }
 ```
-
+方法可以终止目前正在运行的Java虚拟机
 
 
 
