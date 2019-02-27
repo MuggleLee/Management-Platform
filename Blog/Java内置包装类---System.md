@@ -60,7 +60,7 @@ public final static PrintStream err = null;
 ```java
 public static native void arraycopy(Object src,int srcPos,Object dest,int destPos,int length);
 ```
-其中，src 表示源数组，srcPos 表示从源数组中复制的起始位置，dest 表示目标数组，destPos 表示要复制到的目标数组的起始位置，length 表示复制的个数
+其中，src 表示源数组，srcPos 表示	，dest 表示目标数组，destPos 表示要复制到的目标数组的起始位置，length 表示复制的个数
 
 
 示例：
