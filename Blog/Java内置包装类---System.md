@@ -162,7 +162,17 @@ public static void exit(int status) {
 
 示例：
 ```java
-
+public class SystemExample {
+    public static void main(String[] args) {
+        System.out.println("Hello World !");
+        System.exit(0);
+        System.out.println("Hello Muggle Lee");
+    }
+}
+```
+输出结果：
+```java
+Hello World !
 ```
 
 
