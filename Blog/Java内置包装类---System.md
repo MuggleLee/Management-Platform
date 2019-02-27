@@ -15,7 +15,7 @@ public final static PrintStream err = null;
 
 但是，这3个成员变量都没有实例化，怎么可以调用类PrintStream中的方法呢？System类中有一个静态方法initializeSystemClass，根据方法名就可以知道是初始化System类的。
 ```java
-     private static void initializeSystemClass() {
+    private static void initializeSystemClass() {
 
         props = new Properties();
         initProperties(props);  // initialized by the VM
@@ -45,13 +45,13 @@ public final static PrintStream err = null;
 
         sun.misc.VM.booted();
     }
+
+    private static native void setIn0(InputStream in);
+    private static native void setOut0(PrintStream out);
+    private static native void setErr0(PrintStream err);
 ```
 
-
-
-
-
-
+在initializeSystemClass方法中，调用setIn0，setOut0，setErr0这几个
 
 
 
