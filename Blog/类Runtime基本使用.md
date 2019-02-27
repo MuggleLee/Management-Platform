@@ -15,8 +15,12 @@ Runtime类代表Java程序的运行时环境，每当一个JVM进程启动的时
 然后可通过Runtime对象调用一些有趣的方法。
 
 ```java
+//返回 Java 虚拟机中的空闲内存量，供将来分配对象使用的当前可用内存的近似总量，以字节为单位。
 public native long freeMemory();
+//返回 Java 虚拟机中的内存总量，目前为当前和后续对象提供的内存总量，以字节为单位。
 public native long totalMemory();
 public native long maxMemory();
 public native int availableProcessors();
 ```
+
+实例：
