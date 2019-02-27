@@ -156,7 +156,7 @@ public static void exit(int status) {
     Runtime.getRuntime().exit(status);
 }
 ```
-方法可以终止目前正在运行的Java虚拟机
+执行该方法可以终止目前正在运行的Java虚拟机。参数为"0"代表正常终止，参数不为"0"代表异常终止。
 
 
 
