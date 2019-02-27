@@ -4,4 +4,4 @@
 
 Runtime类代表Java程序的运行时环境，每当一个JVM进程启动的时候都会存在一个Runtime对象，随着JVM的存在而存在的。
 
-类Runtime的构造器是私有化的，所以不能通过new
+类Runtime的构造器是私有化的，所以不能通过new创建对象。R
