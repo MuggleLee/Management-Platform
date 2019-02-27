@@ -81,11 +81,7 @@ public class ArrayCopyExample {
 
 输出结果：
 ```java
-1
-2
-3
-d
-e
+
 ```
 
 
