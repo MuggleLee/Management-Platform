@@ -18,4 +18,5 @@ Runtime类代表Java程序的运行时环境，每当一个JVM进程启动的时
 public native long freeMemory();
 public native long totalMemory();
 public native long maxMemory();
+public native int availableProcessors();
 ```
