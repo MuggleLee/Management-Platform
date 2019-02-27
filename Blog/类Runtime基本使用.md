@@ -26,3 +26,19 @@ public native int availableProcessors();
 ```
 
 实例：
+```java
+public class RuntimeExample {
+    public static void main(String[] args) throws IOException {
+        Runtime runtime = Runtime.getRuntime();
+
+        System.out.println(runtime.availableProcessors());
+        System.out.println("Java 虚拟机中的空闲内存量: " + runtime.freeMemory());
+        System.out.println("Java 虚拟机中的内存总量: " + runtime.totalMemory());
+        System.out.println("Java 虚拟机试图使用的最大内存量: " + runtime.maxMemory());
+    }
+}
+```
+输出结果：
+```java
+
+```
