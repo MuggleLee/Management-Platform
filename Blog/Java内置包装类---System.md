@@ -88,7 +88,7 @@ d
 e
 ```
 
-2.
+**2.getProperty()和getProperties()方法**
 
 
 
