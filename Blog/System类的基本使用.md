@@ -12,7 +12,7 @@ public final static PrintStream err = null;
 由于这3个变量都是静态的，所以System.out.println("Hello World !")这行代码实际上是成员变量out调用PrintStream类的println方法。（现在先不过多介绍PrintStream，就知道println方法是可以输出字段的）
 
 但是，这3个成员变量都没有实例化，怎么可以调用类PrintStream中的方法呢？System类中有一个静态方法initializeSystemClass，根据方法名就可以知道是初始化System类的。
-
+```java
     private static void initializeSystemClass() {
 
         props = new Properties();
@@ -182,7 +182,6 @@ Hello World !
 ```java
 public static native long currentTimeMillis();
 ```
->public static native long currentTimeMillis();
 
 这个方法是获取当前系统的时间戳，时间的格式为当前系统时间与 GMT 时间（格林尼治时间）1970 年 1 月 1 日 0 时 0 分 0 秒所差的毫秒数。
 示例：
