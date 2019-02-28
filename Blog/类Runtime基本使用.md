@@ -23,6 +23,7 @@ public native long totalMemory();
 public native long maxMemory();
 // Java 虚拟机的可用的处理器数量
 public native int availableProcessors();
+public Process exec(String command) throws IOException
 ```
 
 实例：
