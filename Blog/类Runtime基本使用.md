@@ -21,9 +21,9 @@ public native long freeMemory();
 public native long totalMemory();
 //返回 Java 虚拟机试图使用的最大内存量，如果内存本身没有限制，则返回值 Long.MAX_VALUE，以字节为单位。
 public native long maxMemory();
-// Java 虚拟机的可用的处理器数量
+// Java 虚拟机的可用的处理器数量。
 public native int availableProcessors();
-//该方法用于根据指定的路径执行对应的可执行文件。
+//执行指定的路径对应的可执行文件。
 public Process exec(String command);
 ```
 
