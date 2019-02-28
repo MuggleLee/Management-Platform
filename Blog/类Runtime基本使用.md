@@ -34,6 +34,10 @@ public class RuntimeExample {
         System.out.println("Java 虚拟机中的空闲内存量: " + runtime.freeMemory());
         System.out.println("Java 虚拟机中的内存总量: " + runtime.totalMemory());
         System.out.println("Java 虚拟机试图使用的最大内存量: " + runtime.maxMemory());
+
+	Process process = runtime.exec("C:\\Windows\\notepad.exe");//打开记事本程序，并返回一个进程
+        Thread.sleep(1000);//休眠一秒后关闭进程
+        process.destroy();
     }
 }
 ```
