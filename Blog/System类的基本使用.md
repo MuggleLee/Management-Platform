@@ -1,4 +1,4 @@
-System类的基本
+System类的基本使用
 在刚开始学习Java的时候，我想每一个人都有写过System.out.println("Hello World !")吧！那为什么输入这行代码就能在控制台输出结果呢？System还有其它什么方法呢？接下来，我根据源码结合日常常用的System方法进行简单的剖析。
 
 System类中包含3个成员变量，分别代表标准输入流(in)，标准输出流(out)和标准错误输出流(err)
