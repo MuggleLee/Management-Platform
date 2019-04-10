@@ -20,7 +20,8 @@ Why：
 >通过增加补全来确保RingBuffer的序列号不会和其他东西同时存在于一个缓存行中。
 
 *什么是伪共享？
-参考：[](https://juejin.im/post/5c34c65bf265da61257849a8)
+参考：
+[https://juejin.im/post/5c34c65bf265da61257849a8](https://juejin.im/post/5c34c65bf265da61257849a8)
 
 Where：
 
