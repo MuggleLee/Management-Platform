@@ -27,7 +27,7 @@ Why：
 
 Where：
 
-Disruptor常用的场景是"生产者-消费者"模型。但发现BlockingQueue等队列达到瓶颈的情况下，可以考虑使用Disruptor代替。
+Disruptor常用的场景是———"生产者-消费者"模型。当发现BlockingQueue等队列达到瓶颈的情况下，可以考虑使用Disruptor代替。
 How：
 
 
