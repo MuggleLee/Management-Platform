@@ -27,7 +27,7 @@ Why：
 
 Where：
 
-Disruptor可以理解高效的"生产者-消费者"模型。但发现BlockingQ
+Disruptor可以理解高效的"生产者-消费者"模型。但发现BlockingQueue等队列达到瓶颈的情况下，可以考虑使用Disruptor
 How：
 
 
