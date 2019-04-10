@@ -22,6 +22,7 @@ Why：
 *什么是伪共享？
 参考：
 [https://juejin.im/post/5c34c65bf265da61257849a8](https://juejin.im/post/5c34c65bf265da61257849a8)
+[http://wiki.jikexueyuan.com/project/disruptor-getting-started/fake-share.html](http://wiki.jikexueyuan.com/project/disruptor-getting-started/fake-share.html)
 
 Where：
 
