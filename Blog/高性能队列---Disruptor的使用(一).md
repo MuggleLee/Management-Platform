@@ -34,7 +34,8 @@ Disruptor常用的场景是———"生产者-消费者"模型。当发现Block
 
 
 参考资料：
-
+[https://zhuanlan.zhihu.com/p/21355046](https://zhuanlan.zhihu.com/p/21355046)
+[https://juejin.im/post/5b744557518825612a228111](https://juejin.im/post/5b744557518825612a228111)
 
 
 
