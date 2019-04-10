@@ -4,8 +4,8 @@
 
 ## What：
 Disruptor是一个开源的并发框架，能够在**无锁**的情况下实现网络的Queue并发操作。由于 Disruptor开发的系统单线程能支撑每秒600万订单，其性能强大引起了人们的关注。
-对Disruptor感兴趣的朋友可以移步到github查看官方代码，
 
+>对Disruptor感兴趣的朋友可以移步到github查看官方代码[https://github.com/LMAX-Exchange/disruptor](https://github.com/LMAX-Exchange/disruptor)
 ## Why：
 1.Disruptor的数据结构是环形数组。
 >数组在内存中是占据连续的内存空间，所以在cpu缓存的时候会将在内存中读取到的内存地址后面的一部分数据也会缓存进去，从而达到性能的提升；但是链表在内存中是不连续的存储，所以只能缓存当前的内存地址。因此使用数组在cpu缓存机制中更加适合。
