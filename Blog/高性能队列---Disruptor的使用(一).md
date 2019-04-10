@@ -19,7 +19,7 @@ Why：
 5.在cpu缓存行大小为64位或更少的情况下，Disruptor能够解决**伪共享**问题。
 >通过缓存行填充来确保RingBuffer的序列号不会和其他东西同时存在于一个缓存行中。
 
-什么是伪共享？
+***什么是伪共享？**
 参考：
 [https://juejin.im/post/5c34c65bf265da61257849a8](https://juejin.im/post/5c34c65bf265da61257849a8)
 [http://wiki.jikexueyuan.com/project/disruptor-getting-started/fake-share.html](http://wiki.jikexueyuan.com/project/disruptor-getting-started/fake-share.html)
