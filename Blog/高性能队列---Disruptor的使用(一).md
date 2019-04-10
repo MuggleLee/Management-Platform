@@ -31,7 +31,8 @@ Disruptor是一个开源的并发框架，能够在**无锁**的情况下实现�
 Disruptor常用的场景是———"生产者-消费者"模型。当发现BlockingQueue等队列达到瓶颈的情况下，可以考虑使用Disruptor代替。
 
 ## How：
-在学会简单使用Disruptor之前，我们需要了解Disruptor的几个核心
+在学会简单使用Disruptor之前，我们需要了解Disruptor的几个核心概念。
+
 
 
 参考资料：
