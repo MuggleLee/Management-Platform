@@ -39,6 +39,7 @@ Disruptor常用的场景是———"生产者-消费者"模型。当发现Block
 顾名思义，这是一个环形的缓存区，它是存储消息的地方。其职责是负责对通过 Disruptor 进行交换的数据（事件）进行存储和更新。可以把它用作在不同上下文（线程）间传递数据的buffer。
 
 Sequence
+Sequence是一个递增的序号，可以计数器；
 
 Sequencer 
 Sequence Barrier
