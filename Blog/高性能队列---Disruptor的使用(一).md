@@ -23,6 +23,7 @@ Disruptor是一个开源的并发框架，能够在**无锁**的情况下实现�
 
 ***什么是伪共享？***
 >参考：
+[剖析Disruptor:为什么会这么快？（二）神奇的缓存行填充](https://ifeve.com/disruptor-cacheline-padding/)
 [https://juejin.im/post/5c34c65bf265da61257849a8](https://juejin.im/post/5c34c65bf265da61257849a8)
 [http://wiki.jikexueyuan.com/project/disruptor-getting-started/fake-share.html](http://wiki.jikexueyuan.com/project/disruptor-getting-started/fake-share.html)
 [https://blog.csdn.net/qq_27680317/article/details/78486220](https://blog.csdn.net/qq_27680317/article/details/78486220)
