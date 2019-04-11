@@ -35,7 +35,7 @@ Disruptor常用的场景是———"生产者-消费者"模型。当发现Block
 ## How：
 在学会简单使用Disruptor之前，我们需要了解Disruptor的几个核心概念。
 RingBuffer
-顾名思义，这是一个环形的缓存区，它是存储消息的地方。其职责是负责对通过 Disruptor 进行交换的数据（事件）进行存储和更新。
+顾名思义，这是一个环形的缓存区，它是存储消息的地方。其职责是负责对通过 Disruptor 进行交换的数据（事件）进行存储和更新。可以把它用作在不同上下文（线程）间传递数据的buffer。
 Sequence
 Sequencer 
 Sequence Barrier
