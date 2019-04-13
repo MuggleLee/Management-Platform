@@ -88,6 +88,7 @@ Demo基于下面四个步骤编写：
 4.编写生产者组件，向Disruptor容器中去投递数据
 
 ```java
+/**
 public class OrderEvent {
     private Long value;
 
