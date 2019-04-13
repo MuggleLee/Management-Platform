@@ -109,6 +109,7 @@ public class OrderEvent {
 /**
  * 步骤2：建立一个事件工厂类，用于创建Event类实例对象
  * 定义如何实例化事件类(Event类)。RingBuffer通过EventFactory创建Event实例
+ * 需要实现om.lmax.disruptor.EventFactory接口
  */
 public class OrderEventFactor implements EventFactory<OrderEvent> {
     @Override
