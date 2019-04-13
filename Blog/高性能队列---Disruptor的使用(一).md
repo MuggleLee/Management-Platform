@@ -87,6 +87,19 @@ Demo基于下面四个步骤编写：
 3.实例化Disruptor实例，配置一系列参数，编写Disruptor核心组件
 4.编写生产者组件，向Disruptor容器中去投递数据
 
+```java
+public class OrderEvent {
+    private Long value;
+
+    public Long getValue() {
+        return value;
+    }
+
+    public void setValue(Long value) {
+        this.value = value;
+    }
+}
+```
 
 
 参考资料：
