@@ -82,10 +82,11 @@ Disruptor 定义的事件处理接口，由用户实现，用于处理事件，�
 
 Demo基于下面四个步骤编写：
 
-1.建立一个工厂Event类，用于创建Event类实例对象
-2.需要有一个监听事件类，用户处理数据(Event类)
-3.实例化Disruptor实例，配置一系列参数，编写Disruptor核心组件
-4.编写生产者组件，向Disruptor容器中去投递数据
+1.
+2.建立一个工厂Event类，用于创建Event类实例对象
+3.需要有一个监听事件类，用户处理数据(Event类)
+4.实例化Disruptor实例，配置一系列参数，编写Disruptor核心组件
+5.编写生产者组件，向Disruptor容器中去投递数据
 
 ```java
 /**
