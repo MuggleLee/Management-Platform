@@ -89,6 +89,8 @@ Demo基于下面四个步骤编写：
 
 ```java
 /**
+ * 事件类
+ */
 public class OrderEvent {
     private Long value;
 
