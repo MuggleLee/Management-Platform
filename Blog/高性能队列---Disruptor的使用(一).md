@@ -104,7 +104,16 @@ public class OrderEvent {
 }
 ```
 ```java
-
+/**
+ * 事件工厂类。
+ * 定义如何实例化事件类(Event类)。RingBuffer通过EventFactory创建Event实例
+ */
+public class OrderEventFactor implements EventFactory<OrderEvent> {
+    @Override
+    public OrderEvent newInstance() {
+        return new OrderEvent();
+    }
+}
 ```
 
 
