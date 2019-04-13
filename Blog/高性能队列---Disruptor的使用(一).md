@@ -66,11 +66,7 @@ SequenceBarrier在初始化的时候会收集需要依赖的组件的Sequence，
 [https://zhuanlan.zhihu.com/p/21355046](https://zhuanlan.zhihu.com/p/21355046)
 [https://juejin.im/post/5b744557518825612a228111](https://juejin.im/post/5b744557518825612a228111)
 [http://ifeve.com/disruptor-getting-started/](http://ifeve.com/disruptor-getting-started/)
-
-
-
-E:\Blog\PicGo\execute-Flow.png
-
+[http://ifeve.com/disruptor-info/](http://ifeve.com/disruptor-info/)
 
 
 
