@@ -79,7 +79,7 @@ Disruptor 定义的事件处理接口，由用户实现，用于处理事件，�
 即生产者，只是泛指调用 Disruptor 发布事件的用户代码，Disruptor 没有定义特定接口或类型。
 
 
-
+接下来
 
 参考资料：
 [https://zhuanlan.zhihu.com/p/21355046](https://zhuanlan.zhihu.com/p/21355046)
