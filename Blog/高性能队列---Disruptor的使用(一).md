@@ -117,6 +117,18 @@ public class OrderEventFactor implements EventFactory<OrderEvent> {
     }
 }
 ```
+```java
+/**
+ * 步骤3：创建监听事件类，处理数据
+ */
+public class OrderEventHandler implements EventHandler<OrderEvent> {
+    @Override
+    public void onEvent(OrderEvent orderEvent, long l, boolean b) throws Exception {
+        System.out.println("消费者 ： " + orderEvent.getValue());
+    }
+}
+```
+
 
 
 参考资料：
