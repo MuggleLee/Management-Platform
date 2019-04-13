@@ -53,11 +53,13 @@ SequenceBarrier在初始化的时候会收集需要依赖的组件的Sequence，
 
 >个人理解：Sequence Barrier类似一个栅栏，可以管理消费者的消费顺序。在生产-消费模式中，不能存在消费比生产多，肯定消费量是小于等于生产量，所以Sequence Barrier就是控制消费者过度消费，如果消费量大于生产量，这样的程序就不合理了。
 
-Wait Strategy
-Event
-EventProcessor
-EventHandler
-Producer
+### Wait Strategy
+
+
+### Event
+### EventProcessor
+### EventHandler
+### Producer
 
 
 参考资料：
