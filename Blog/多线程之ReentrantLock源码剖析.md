@@ -17,7 +17,7 @@ ReentrantLock与synchronized的区别
 ReentrantLock有公平锁和非公平锁两种实现方式，默认使用非公平锁。因为可能存在某些线程阻塞时间长而导致整体执行效率低，所以使用非公平锁比使用公平锁的效率要高。
 
 >  非公平锁和公平锁的区别：<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;非公平锁直接执行compareAndSetState()方法，尝试将state修改为1，这是明显就是抢先获取锁的过程。(插队行为)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;非公平锁直接执行compareAndSetState()方法，尝试将state修改为1，这明显就是抢先获取锁的过程。(插队行为)<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;公平锁在执行compareAndSetState()方法之前，会先执行hasQueuedPredecessors()判断等待队列是否为空。如果为空则占有锁，否则会加入等待线程队列，依次获取锁。(文明排队)
   
     public ReentrantLock() {
@@ -27,7 +27,7 @@ ReentrantLock有公平锁和非公平锁两种实现方式，默认使用非公�
         sync = fair ? new FairSync() : new NonfairSync();
     }
 
-ReentrantLock类主要有3个子类：Sync，NonfairSync，FairSync。NonfairSync，FairSync分别都继承Sync，而Sync类继承AbstractQueuedSynchronizer。其实可以说Locks接口实现类大多数都是基于AbstractQueuedSynchronizer(AQS，即队列同步器)实现的。
+ReentrantLock类主要有3个子类：Sync，NonfairSync，FairSync。NonfairSync，FairSync分别都继承Sync，而Sync类继承抽象类AbstractQueuedSynchronizer。其实可以说Locks接口实现类大多数都是基于AbstractQueuedSynchronizer(AQS，即队列同步器)实现的。
 
 # 非公平锁源码剖析 #
 
@@ -301,9 +301,9 @@ lock()与unlock()之间的代码块称为临界区，一般都是对共享变量
     }
 
 
-如果tail和head不同，并且head的next为空或者head的next的线程不是当前线程，则表示队列不为空。有两种情况会导致h的next为空：
- 1）当前线程进入hasQueuedPredecessors的同时，另一个线程已经更改了tail（在enq方法中），但还没有将head的next指向自己，这种情况表明队列不为空；
-2）当前线程将head赋予h后，head被另一个线程移出队列，导致h的next为空，这种情况说明锁已经被占用。
+如果tail和head不同，并且head的next为空或者head的next的线程不是当前线程，则表示队列不为空。有两种情况会导致h的next为空：<br>
+ 1）当前线程进入hasQueuedPredecessors的同时，另一个线程已经更改了tail（在enq方法中），但还没有将head的next指向自己，这种情况表明队列不为空；<br>
+ 2）当前线程将head赋予h后，head被另一个线程移出队列，导致h的next为空，这种情况说明锁已经被占用。<br>
 
 如果hasQueuedPredecessors()方法返回true，表示有其它线程比当前线程更早地请求获取锁，因此需要等待前驱线程获取并释放锁之后才能继续获取锁。如果tryAcquire()方法返回false，执行acquireQueued()加入等待队列，其它过程其实和非公平锁一样，我这里就不重复说了。只要理解非公平锁的实现过程，公平锁也就容易理解了。
 
