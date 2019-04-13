@@ -75,6 +75,9 @@ EventProcessor 持有特定消费者(Consumer)的 Sequence，并提供用于调�
 Disruptor 定义的事件处理接口，由用户实现，用于处理事件，是 Consumer 的真正实现。开发者实现EventHandler，然后作为入参传递给EventProcessor的实例。
 
 ### Producer
+即生产者，只是泛指调用 Disruptor 发布事件的用户代码，Disruptor 没有定义特定接口或类型。
+
+
 
 
 参考资料：
