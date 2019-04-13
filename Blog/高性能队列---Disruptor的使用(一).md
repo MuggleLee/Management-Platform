@@ -90,6 +90,7 @@ Demo基于下面四个步骤编写：
 
 ```java
 /**
+ * 步骤1：创建生产消费的数据类型。
  * 事件类。定义与Disruptor进行交换数据类型
  */
 public class OrderEvent {
@@ -106,6 +107,7 @@ public class OrderEvent {
 ```
 ```java
 /**
+ * 步骤2：建立一个工厂Event类，用于创建Event类实例对象
  * 事件工厂类。
  * 定义如何实例化事件类(Event类)。RingBuffer通过EventFactory创建Event实例
  */
