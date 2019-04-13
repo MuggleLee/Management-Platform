@@ -89,7 +89,7 @@ Demo基于下面四个步骤编写：
 
 ```java
 /**
- * 事件类
+ * 事件类。定义与Disruptor进行
  */
 public class OrderEvent {
     private Long value;
