@@ -130,8 +130,96 @@ public class OrderEventHandler implements EventHandler<OrderEvent> {
 }
 ```
 ```java
+/**
+ * 测试类
+ * 4.实例化Disruptor实例，配置一系列参数，编写Disruptor核心组件
+ */
+public class Main {
 
+    //RingBuffer大小。注意：大小为2的N次方，否则会报错为：java.lang.IllegalArgumentException: bufferSize must be a power of 2
+    private int ringBufferSize = 1024 * 1024;
+
+    //创建线程池
+    private ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+
+    public static void main(String[] args) {
+        Main main = new Main();
+        main.showDisruptorDemo();
+    }
+
+    public void showDisruptorDemo(){
+        //创建事件工厂类和事件监听类对象
+        OrderEventFactor orderEventFactor = new OrderEventFactor();
+        OrderEventHandler orderEventHandler = new OrderEventHandler();
+
+        //1.实例化Disruptor
+        Disruptor disruptor = new Disruptor(orderEventFactor,ringBufferSize,executor,ProducerType.SINGLE,new BlockingWaitStrategy());
+        //2.监听对象
+        disruptor.handleEventsWith(orderEventHandler);
+        //3.启动disruptor
+        disruptor.start();
+        //4.获取实际存储数据容器--RingBuffer
+        RingBuffer<OrderEvent> ringBuffer = disruptor.getRingBuffer();
+
+        OrderEventProducer orderEventProducer = new OrderEventProducer(ringBuffer);
+
+        //创建缓冲区
+        ByteBuffer byteBuffer = ByteBuffer.allocate(8);
+
+        for (long i = 0; i < 100; i++) {
+            byteBuffer.putLong(0,i);
+            orderEventProducer.sendData(byteBuffer);
+        }
+        //关闭Disruptor
+        disruptor.shutdown();
+        //关闭线程池
+        executor.shutdown();
+    }
+}
 ```
+```java
+/**
+ * 5.编写生产者组件，向Disruptor容器中去投递数据
+ */
+public class OrderEventProducer {
+
+    private RingBuffer<OrderEvent> ringBuffer;
+
+    public OrderEventProducer(RingBuffer ringBuffer) {
+        this.ringBuffer = ringBuffer;
+    }
+
+    public void sendData(ByteBuffer byteBuffer) {
+        //1.获取序列号
+        long sequence = ringBuffer.next();
+        try {
+            //2.根据序列号找到具体的OrderEvent对象
+            OrderEvent orderEvent = ringBuffer.get(sequence);
+            //3.赋值
+            orderEvent.setValue(byteBuffer.getLong(0));
+        } finally {
+            //4.提交发布操作
+            ringBuffer.publish(sequence);
+        }
+    }
+}
+```
+
+输出结果：
+```java
+消费者 ： 0
+消费者 ： 1
+消费者 ： 2
+...
+消费者 ： 97
+消费者 ： 98
+消费者 ： 99
+```
+
+目前根据官方文档和参考各位前辈的博客，顺利写出一个简单的Disruptor的Demo。接下来，继续往深处探究、学习Disruptor的高性能！
+
+敬请期待~
+
 
 
 
