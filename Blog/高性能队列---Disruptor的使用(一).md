@@ -69,8 +69,11 @@ EventProcessor 持有特定消费者(Consumer)的 Sequence，并提供用于调�
 
 其中一类消费者是BatchEvenProcessor。每个BatchEvenProcessor有一个Sequence，来记录自己消费RingBuffer中消息的情况。所以，一个消息必然会被每一个BatchEvenProcessor消费。
 
-另一类消费者是WorkProcessor。每个WorkProcessor也有一个Sequence，多个WorkProcessor还共享一个Sequence用于互斥的访问RingBuffer。一个消息被一个WorkProcessor消费，就不会被共享一个Sequence的其他WorkProcessor消费。这个被WorkProcessor共享的Sequence相当于尾指针
+另一类消费者是WorkProcessor。每个WorkProcessor也有一个Sequence，多个WorkProcessor还共享一个Sequence用于互斥的访问RingBuffer。一个消息被一个WorkProcessor消费，就不会被共享一个Sequence的其他WorkProcessor消费。这个被WorkProcessor共享的Sequence相当于尾指针。
+
 ### EventHandler
+Disruptor 定义的事件处理接口，由用户实现，用于处理事件，是 Consumer 的真正实现。开发者实现EventHandler，然后作为入参传递给EventProcessor的实例。
+
 ### Producer
 
 
