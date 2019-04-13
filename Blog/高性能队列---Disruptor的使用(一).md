@@ -62,6 +62,7 @@ SequenceBarrier在初始化的时候会收集需要依赖的组件的Sequence，
 **PhasedBackoffWaitStrategy ：** 上面多种策略的综合，CPU资源的占用少，延迟大。
 
 ### Event
+在 Disruptor 的语义中，生产者和消费者之间进行交换的数据被称为事件(Event)。它不是一个被 Disruptor 定义的特定类型，而是由 Disruptor 的使用者定义并指定。
 ### EventProcessor
 ### EventHandler
 ### Producer
