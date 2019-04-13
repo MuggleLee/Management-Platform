@@ -54,7 +54,13 @@ SequenceBarrier在初始化的时候会收集需要依赖的组件的Sequence，
 >个人理解：Sequence Barrier类似一个栅栏，可以管理消费者的消费顺序。在生产-消费模式中，不能存在消费比生产多，肯定消费量是小于等于生产量，所以Sequence Barrier就是控制消费者过度消费，如果消费量大于生产量，这样的程序就不合理了。
 
 ### Wait Strategy
+当消费者等待在SequenceBarrier上时，有许多可选的等待策略，不同的等待策略在延迟和CPU资源的占用上有所不同，可以视应用场景选择：
 
+BusySpinWaitStrategy ： 自旋等待，类似Linux Kernel使用的自旋锁。低延迟但同时对CPU资源的占用也多。
+BlockingWaitStrategy ： 使用锁和条件变量。CPU资源的占用少，延迟大。
+SleepingWaitStrategy ： 在多次循环尝试不成功后，选择让出CPU，等待下次调度，多次调度后仍不成功，尝试前睡眠一个纳秒级别的时间再尝试。这种策略平衡了延迟和CPU资源占用，但延迟不均匀。
+YieldingWaitStrategy ： 在多次循环尝试不成功后，选择让出CPU，等待下次调。平衡了延迟和CPU资源占用，但延迟也比较均匀。
+PhasedBackoffWaitStrategy ： 上面多种策略的综合，CPU资源的占用少，延迟大。
 
 ### Event
 ### EventProcessor
