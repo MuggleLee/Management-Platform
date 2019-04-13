@@ -84,7 +84,8 @@ Demo基于下面四个步骤编写：
 
 1.建立一个工厂Event类，用于创建Event类实例对象
 2.需要有一个监听事件类，用户处理数据(Event类)
-3.实例化Disruptor实例，配置一系列参数，编写Disruptor核心
+3.实例化Disruptor实例，配置一系列参数，编写Disruptor核心组件
+4.编写生产者组件，
 
 
 参考资料：
