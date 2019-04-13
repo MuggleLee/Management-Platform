@@ -51,7 +51,7 @@ Sequencer 是 Disruptor 的真正核心。此接口有两个实现类 SingleProd
 
 SequenceBarrier在初始化的时候会收集需要依赖的组件的Sequence，RingBuffer的cursor会被自动的加入其中。需要依赖其他消费者和/或RingBuffer的消费者在消费下一个消息时，会先等待在SequenceBarrier上，直到所有被依赖的消费者和RingBuffer的Sequence大于等于这个消费者的Sequence。当被依赖的消费者或RingBuffer的Sequence有变化时，会通知SequenceBarrier唤醒等待在它上面的消费者。
 
->个人理解：Sequence Barrier是一个栅栏，可以管理消费者的消费顺序。在生产-消费模式中，不能存在消费比生产多，肯定消费量是小于等于生产量，所以
+>个人理解：Sequence Barrier是一个栅栏，可以管理消费者的消费顺序。在生产-消费模式中，不能存在消费比生产多，肯定消费量是小于等于生产量，所以Sequence Barrier就是控制消费者过度消费，如果消费量大于
 
 Wait Strategy
 Event
