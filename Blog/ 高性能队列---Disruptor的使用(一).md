@@ -57,7 +57,7 @@ SequenceBarrier在初始化的时候会收集需要依赖的组件的Sequence，
 ### Wait Strategy
 当消费者等待在SequenceBarrier上时，有许多可选的等待策略，不同的等待策略在延迟和CPU资源的占用上有所不同，可以视应用场景选择：
 **BusySpinWaitStrategy ：** 自旋等待，类似Linux Kernel使用的自旋锁。低延迟但同时对CPU资源的占用也多。
-**BlockingWaitStrategy ：** 使用锁和条件变量。CPU资源的占用少，延迟大。
+**BlockingWaitStrategy ：** 使用锁和条件变量。CPU资源的占用少，延迟大。 
 **SleepingWaitStrategy ：** 在多次循环尝试不成功后，选择让出CPU，等待下次调度，多次调度后仍不成功，尝试前睡眠一个纳秒级别的时间再尝试。这种策略平衡了延迟和CPU资源占用，但延迟不均匀。
 **YieldingWaitStrategy ：** 在多次循环尝试不成功后，选择让出CPU，等待下次调。平衡了延迟和CPU资源占用，但延迟也比较均匀。性能好，适合用于低延迟的系统。在要求极高性能且事件处理线程数小于CPU逻辑核心数的场景中，推荐使用此策略；例如：CPU开启超线程的特性。
 **PhasedBackoffWaitStrategy ：** 上面多种策略的综合，CPU资源的占用少，延迟大。
